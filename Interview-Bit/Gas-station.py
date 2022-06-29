@@ -1,3 +1,5 @@
+#  returning Time limit exceeded  #
+
 '''
 Question:
 Given two integer arrays A and B of size N. There are N gas stations along a circular route, where the amount of gas at station i is A[i].
@@ -23,10 +25,11 @@ Example Output:
 
 
 Example Explanation:
-If you start from index 0, you can fill in A[0] = 1 amount of gas. Now your tank has 1 unit of gas. But you need B[0] = 2 gas to travel to station 1. If you start from index 1, you can fill in A[1] = 2 amount of gas. Now your tank has 2 units of gas. You need B[1] = 1 gas to get to station 0. So, you travel to station 0 and still have 1 unit of gas left over. You fill in A[0] = 1 unit of additional gas, making your current gas = 2. It costs you B[0] = 2 to get to station 1, which you do and complete the circuit.
+If you start from index 0, you can fill in A[0] = 1 amount of gas. Now your tank has 1 unit of gas. But you need B[0] = 2 gas to travel to station 1.
+If you start from index 1, you can fill in A[1] = 2 amount of gas. Now your tank has 2 units of gas. You need B[1] = 1 gas to get to station 0. So, you travel to station 0 and still have 1 unit of gas left over. You fill in A[0] = 1 unit of additional gas, making your current gas = 2. It costs you B[0] = 2 to get to station 1, which you do and complete the circuit.
 '''
 
-
+# Solution:
 class Solution:
     def canCompleteCircuit(self, A, B):
         N = len(A)
@@ -34,19 +37,29 @@ class Solution:
             if A[i] >= B[i]:
                 j = i
                 tempA = A[j]
-                tempB = B[j]
-                while tempA >= tempB:
-                    #continue from here
-                    j += 1
-                    tempA = A[j]
-                    tempB = B[j]
-            else:
-                continue
+                iterated = False
+                while tempA >= B[j]:
+                    if j == i and iterated == True:
+                        return i
+
+                    tempA = tempA - B[j]
+                    if (j == (N-1)): 
+                        j = 0
+                    else: 
+                        j += 1
+                    
+                    tempA = tempA + A[j]
+
+                    iterated = True
         return -1
 
         
-A = [1, 2]
-B = [2, 1]
+A = [1, 2, 3, 4, 5]
+B = [3, 4, 5, 1, 2]
+# A = [0]
+# B = [0]
+# A = [1, 2]
+# B = [2, 1]
 solve = Solution()
 print(solve.canCompleteCircuit(A, B))
 
