@@ -10,11 +10,11 @@ class Solution:
                 h = m - 1
             else:
                 return m
-        return l,m,h
+        return l
         
-# nums = [-1,0,3,5,9,12]
-nums = [1,3,5,6]
-target = 5
+nums = [-1,0,3,5,9,12]
+# nums = [1,3,5,6]
+target = 8
 
 soln = Solution()
 print(soln.search(nums, target))
