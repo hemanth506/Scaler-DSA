@@ -6,6 +6,7 @@ noOfTestCases = 4
 limits = [5, 5, 6, 3]
 initialLists = [[1,2,3,8,7], [1,2,3,7,8], [4, 3, 2, 1, 3, 4], [1, 3, 2]]
 # initialLists = [4, 3, 2, 1, 3, 4]
+
 for i in range(0, noOfTestCases):
     # limit = int(input())
     limit = limits[i]
