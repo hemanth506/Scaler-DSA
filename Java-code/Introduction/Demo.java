@@ -1,7 +1,15 @@
-package Introduction;
+
 
 import java.util.Scanner;
 import java.util.Arrays;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+import java.io.Console;
 public class Demo{
 
     void dataTypes() {
@@ -159,7 +167,26 @@ public class Demo{
         return n * (n+1)/2 - sum;
     }
     
-    public static void main(String[] args) {
+
+    void getUserInputFiles() {
+        try {
+            File newFile = new File("sample.txt");
+            Scanner obj = new Scanner(newFile);
+    
+            while (obj.hasNextLine()) {
+                String data = obj.nextLine();
+                System.out.println(data);
+            }
+            obj.close();
+
+        } 
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
         System.out.println("Congrats Hemanth for starting Java");
 
         Scanner scan = new Scanner(System.in);
@@ -177,8 +204,27 @@ public class Demo{
         // int sumValue = newDemo.loopingControlStatements(scan);
         // System.out.print(sumValue);
 
-        int[] nums = {9,6,4,2,3,5,7,0,1};
-        newDemo.leetCodeMissingNumbers(nums);
+        // int[] nums = {9,6,4,2,3,5,7,0,1};
+        // newDemo.leetCodeMissingNumbers(nums);
+
+        newDemo.getUserInputFiles();
+
+        InputStreamReader input = new InputStreamReader(System.in);
+        BufferedReader reader = new BufferedReader(input);
+        System.out.println("Enter your name: ");
+        String name = reader.readLine();
+        System.out.println("You entered: ");
+        System.out.println(name);
+        
+
+        Console c = System.console();
+        System.out.println("Expected Salary?");
+        String str = c.readLine();
+        System.out.println(str);
+        System.out.println("Enter password? ");
+        char[] pass = c.readPassword();
+        System.out.println(pass);
+
 
         scan.close();
     }
