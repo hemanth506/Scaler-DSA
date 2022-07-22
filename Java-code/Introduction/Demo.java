@@ -79,6 +79,7 @@ public class Demo{
     }
 
     void switchCase(Scanner scan) {
+        // 
         System.out.println("Enter a number from 1 to 7");
         int integer = scan.nextInt();
 
@@ -108,6 +109,7 @@ public class Demo{
                 break;
         }
 
+        // 
         System.out.println("Enter any alphabet ");
         int alphabet = scan.next().charAt(0);
 
@@ -122,6 +124,58 @@ public class Demo{
             default:
                 System.out.println("Consonant");;
         }
+
+        // Nested Switch case.
+        System.out.println("Enter courseCategory: ");
+        String courseCategory = scan.next();
+        scan.nextLine();
+        System.out.println("Enter course: ");
+        String course = scan.next();
+        scan.nextLine();
+        System.out.println("Enter dishes: ");
+        String dishes = scan.next();
+
+        switch(courseCategory) {
+            case "appetizer":
+                System.out.println("You selected appetizer");
+                System.out.println("Your brunch: " + "Pita bread sticks with hummus and crystal lemonade "+ " will be ready to serve in 9 minutes");
+                break;
+
+            case "maincourse":
+                System.out.println("You selected main course");
+                switch(course) {
+                    case "brunch":
+                        System.out.println("Your brunch: Crispy Baked Chicken Wings with mashed potatoes and ice tea  will be ready to serve in 9 minutes");
+                        break;
+                    case "lunch":
+                        System.out.println("Your lunch: roasted chicken panini with coleslaw and mojito will be ready to serve in 12 minutes");
+                        switch(dishes) {
+                            case "fish":
+                                System.out.println("Fishes are good");
+                                break;
+                            case "chicken":
+                                System.out.println("chicken make your body heat");
+                                break;
+                            case "mutton":
+                                System.out.println("Mutton is costly");
+                                break;
+                        }
+                        break;
+                    case "dinner":
+                        System.out.println("Your dinner: cheese chicken ravioli with garlic bread and mojito will be ready to serve in 13 minutes");
+                        break;
+                    default:
+                        System.out.println("Wrong input in inner switch");
+                        break;
+                }
+                break;
+            case "desert":
+                System.out.println("Your snack: Blueberry cheesecake with chocolate fudge syrup will be ready to serve in 7 minutes");
+                break;
+            default:
+                System.out.println("Wrong input");
+        }
+
     }
     
     void getUserInput(Scanner scan) {
@@ -186,6 +240,42 @@ public class Demo{
         }
     }
 
+    public enum DrinkMenu {
+        Liit,
+        Martini,
+        Coconutrum,
+        Gin,
+    }
+    
+    public void enumSwitchCase() {
+        DrinkMenu order = DrinkMenu.Martini;
+        switch (order) {
+            case Gin:
+              System.out.println("Wait time for Gin with tonic water is 3 mins");
+              break;
+            case Coconutrum:
+              System.out.println("Wait time for Coconut rum is 2 mins");
+              break;
+            case Martini:
+              System.out.println("Wait time for Crushed Martini is 3 mins");
+              break;
+            case Liit:
+              System.out.println("Wait time for Long island iced tea is 6 mins");
+              break;
+          }
+    }
+    
+    public static void exitCondition() {
+        for (int i = 0; i < 10; i++) {
+            if (i > 4) {                   
+                System.out.println("Terminating JVM...");
+                System.exit(0);
+            }
+            System.out.println("Array Index: " + i );
+        }
+        System.out.println("I will not be printed because the JVM is terminated..");
+    }
+    
     public static void main(String[] args) throws IOException {
         System.out.println("Congrats Hemanth for starting Java");
 
@@ -207,24 +297,28 @@ public class Demo{
         // int[] nums = {9,6,4,2,3,5,7,0,1};
         // newDemo.leetCodeMissingNumbers(nums);
 
-        newDemo.getUserInputFiles();
+        // newDemo.getUserInputFiles();
 
-        InputStreamReader input = new InputStreamReader(System.in);
-        BufferedReader reader = new BufferedReader(input);
-        System.out.println("Enter your name: ");
-        String name = reader.readLine();
-        System.out.println("You entered: ");
-        System.out.println(name);
+        // InputStreamReader input = new InputStreamReader(System.in);
+        // BufferedReader reader = new BufferedReader(input);
+        // System.out.println("Enter your name: ");
+        // String name = reader.readLine();
+        // System.out.println("You entered: ");
+        // System.out.println(name);
         
 
-        Console c = System.console();
-        System.out.println("Expected Salary?");
-        String str = c.readLine();
-        System.out.println(str);
-        System.out.println("Enter password? ");
-        char[] pass = c.readPassword();
-        System.out.println(pass);
+        // Console c = System.console();
+        // System.out.println("Expected Salary?");
+        // String str = c.readLine();
+        // System.out.println(str);
+        // System.out.println("Enter password? ");
+        // char[] pass = c.readPassword();
+        // System.out.println(pass);
 
+        
+        // enumSwitchCase();
+
+        exitCondition();
 
         scan.close();
     }
