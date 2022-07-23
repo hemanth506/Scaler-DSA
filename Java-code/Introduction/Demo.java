@@ -316,9 +316,9 @@ public class Demo{
         // System.out.println(pass);
 
         
-        // enumSwitchCase();
+        // newDemo.enumSwitchCase();
 
-        exitCondition();
+        // newDemo.exitCondition();
 
         scan.close();
     }
