@@ -1,3 +1,4 @@
+// package basics;
 // package TopicRevision;
 
 public class checkPairs {
@@ -38,7 +39,7 @@ public class checkPairs {
         checkPairs pairs = new checkPairs();
         int[] arr = {3,-2,1,4,3,6,8};
         int k = 10;
-        // System.out.println(pairs.upperValidPair(arr, k));
-        System.out.println(pairs.lowerValidPair(arr, k));
+        System.out.println(pairs.upperValidPair(arr, k));
+        // System.out.println(pairs.lowerValidPair(arr, k));
     }   
 }
