@@ -39,9 +39,22 @@ public class nthMagicNumber {
         return values.get(A-1);
     }
     
+    // peer code.
+    public int solveN(int A) {
+        int ans = 0;
+        for (int i = 0; A > 0; i++, A = A >> 1){
+            if ((A & 1) == 1) {
+                ans += Math.pow(5, (i+1));
+                System.out.println(Math.pow(5, (i+1)));
+            }
+        }
+        System.out.println(ans);
+        return ans;
+    }
     public static void main(String[] args) {
         nthMagicNumber magic = new nthMagicNumber();
-        int A = 0;
+        int A = 7;
         magic.solve(A);
+        magic.solveN(A);
     }
 }
