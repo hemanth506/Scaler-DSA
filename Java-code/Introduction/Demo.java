@@ -276,6 +276,24 @@ public class Demo{
         System.out.println("I will not be printed because the JVM is terminated..");
     }
     
+    void maxMinOFArr () {
+        int[] arr = {1, 2,0, 3, 4, 5};
+
+        int maxValue = Integer.MIN_VALUE;
+        int minValue = Integer.MAX_VALUE;
+
+        for(int i = 0; i < arr.length; i++) {
+            if (maxValue < arr[i]) {
+                maxValue = arr[i];
+            }
+
+            if (minValue > arr[i]) {
+                minValue = arr[i];
+            }
+        }
+        System.out.println(minValue + " " + maxValue);
+    }
+    
     public static void main(String[] args) throws IOException {
         System.out.println("Congrats Hemanth for starting Java");
 
@@ -319,6 +337,8 @@ public class Demo{
         // newDemo.enumSwitchCase();
 
         // newDemo.exitCondition();
+
+        newDemo.maxMinOFArr();
 
         scan.close();
     }
