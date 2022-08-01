@@ -16,20 +16,21 @@ public class largestNumber {
                     count += 1;
                 }
             }
-
             if(count == N) {
                 return "0";
             }
         }
         for(int i = 0; i < N; i++) {
             for (int j = 0; j < N - 1 - i; j++) {
+                // Merging as String
                 String a = B.get(j) + "" + B.get(j+1);
                 String b = B.get(j+1) + "" + B.get(j);
 
+                // Converting as Long
                 long parseA = Long.parseLong(a.trim());
                 long parseB = Long.parseLong(b.trim());
-
-                // if(parseA < parseB) {
+                
+                // Comparing as Long
                 if(lg.compareString(parseA, parseB)) {
                     int temp = B.get(j);
                     B.set(j, B.get(j+1));
