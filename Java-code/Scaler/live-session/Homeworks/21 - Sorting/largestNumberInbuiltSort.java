@@ -31,8 +31,11 @@ public class largestNumberInbuiltSort {
 class inBuiltSortComparator implements Comparator<Integer> {
     @Override
     public int compare(Integer o1, Integer o2) {
+        // converting the integers as strings and merging them
         String first = String.valueOf(o1) + String.valueOf(o2);
         String second = String.valueOf(o2) + String.valueOf(o1);
+        
+        // comparing as string itself
         return second.compareTo(first);
     }
 }
