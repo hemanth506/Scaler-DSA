@@ -21,14 +21,15 @@ public class pairsWithGivenXOR {
         HashSet<Integer> hs = new HashSet<>();
         int ct = 0;
         for(int i = 0; i < N; i++) {
-            if (hs.contains(A.get(i))) {
+            int a = A.get(i);
+            int b = a ^ B;
+            if (hs.contains(a)) {
                 ct += 1;
             }
-            int val = A.get(i) ^ B;
-            hs.add(val);
+            hs.add(b);
         }
         System.out.println(ct);
-        return 1;
+        return ct;
     }
     public static void main(String[] args) {
         pairsWithGivenXOR pXOR = new pairsWithGivenXOR();
