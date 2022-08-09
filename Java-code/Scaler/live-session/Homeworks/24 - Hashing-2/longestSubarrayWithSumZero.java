@@ -1,3 +1,9 @@
+/*
+ * If the prefix value is "0" find the length from 0th index to the current index.
+ * if the prefix value is not zero find the already existing value of that key and subtract using the current index 
+ */
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
