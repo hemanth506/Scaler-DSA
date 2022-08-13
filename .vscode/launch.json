@@ -1,0 +1,161 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Demo",
+            "request": "launch",
+            "mainClass": "Demo",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch allDiagonals",
+            "request": "launch",
+            "mainClass": "allDiagonals",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch binarySearch",
+            "request": "launch",
+            "mainClass": "binarySearch",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch checkPairs",
+            "request": "launch",
+            "mainClass": "checkPairs",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch closestMinMax",
+            "request": "launch",
+            "mainClass": "closestMinMax",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch countPairs",
+            "request": "launch",
+            "mainClass": "countPairs",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch equilibriumIndex",
+            "request": "launch",
+            "mainClass": "equilibriumIndex",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch findSubArrayOfLen",
+            "request": "launch",
+            "mainClass": "findSubArrayOfLen",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch leadersArray",
+            "request": "launch",
+            "mainClass": "leadersArray",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch minimumPicks",
+            "request": "launch",
+            "mainClass": "minimumPicks",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch nonDecreasingSubArray",
+            "request": "launch",
+            "mainClass": "nonDecreasingSubArray",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch pickFromBothSides",
+            "request": "launch",
+            "mainClass": "pickFromBothSides",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch productArrayPuzzle",
+            "request": "launch",
+            "mainClass": "productArrayPuzzle",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch rangeSUmQuery",
+            "request": "launch",
+            "mainClass": "rangeSUmQuery",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch rotateArray",
+            "request": "launch",
+            "mainClass": "rotateArray",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch rowAndColumnWiseSum",
+            "request": "launch",
+            "mainClass": "rowAndColumnWiseSum",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch secondLargest",
+            "request": "launch",
+            "mainClass": "secondLargest",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch specialSubSequenceAG",
+            "request": "launch",
+            "mainClass": "specialSubSequenceAG",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch sumByRemovingAnElt",
+            "request": "launch",
+            "mainClass": "sumByRemovingAnElt",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch sumOfAllSubArrays",
+            "request": "launch",
+            "mainClass": "sumOfAllSubArrays",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
+            "name": "Launch timeToEquality",
+            "request": "launch",
+            "mainClass": "timeToEquality",
+            "projectName": "Python-code_ec631690"
+        }
+    ]
+}
