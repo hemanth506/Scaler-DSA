@@ -21,11 +21,12 @@ public class factorsSortOpt {
         System.out.println("original list => " + A);
         bubbleSortComp bubble = new bubbleSortComp();
         
+        // creating factor array
         int arrInt[] = new int[N];
         for(int i = 0; i < N; i++) {
             arrInt[i] = factors(A.get(i));
         }
-        System.out.println("factors list => " + Arrays.toString(arrInt));
+        System.out.println("factors array => " + Arrays.toString(arrInt));
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N - 1; j++) {
