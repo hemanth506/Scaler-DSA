@@ -1,4 +1,4 @@
-
+# This solution has mulitple twists, first we should substitute the "B" value with the formula and consider that as lenght, then we have to 
 class Solution:
     def solve(self, A, B):
         length = 2 * B + 1
@@ -15,7 +15,7 @@ class Solution:
                         
                         leftSubIndex = i - startingIndex
                         rightSubIndex = i + startingIndex
-                        # print(leftSubIndex, i, rightSubIndex)
+                        print(leftSubIndex, i, rightSubIndex)
                         print(A[leftSubIndex:rightSubIndex+1])
                         notIndexed = False
                         for k in range(leftSubIndex, rightSubIndex):
@@ -25,6 +25,7 @@ class Solution:
                                 break
                         
                         if not notIndexed:
+                            print("Not indexed => " , leftSubIndex, i, rightSubIndex)
                             indexes.append(i)
             else:
                 return indexes
@@ -39,14 +40,14 @@ class Solution:
 A = [0,0,0,1,0,0,0,1,0,1,1]
 B = 1
 
-A = [ 1, 1, 1, 1, 1, 0, 1 ]
-B = 0
+# A = [ 1, 1, 1, 1, 1, 0, 1 ]
+# B = 0
 
 # A = [ 1, 1, 0, 1, 1, 0, 1 ]
 # B = 3
 
 
-# A = [ 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0 ]
-# B = 2
+A = [ 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0 ]
+B = 2
 soln = Solution()
 print(soln.solve(A, B))
