@@ -6,6 +6,7 @@ import java.util.List;
 public class validSudoku {
 
     public int isValidSudoku(final List<String> A) {
+        // store the string in array of 9X9 matrix.
         String[][] sudoku = new String[9][9];
         for (int i = 0; i < 9; i++) {
             String[] AInner = A.get(i).split("");
@@ -48,13 +49,14 @@ public class validSudoku {
             // System.out.println("Total => " + hs);
         }
 
-        // System.out.println("============Inner grid vaalidation=================");
+        // System.out.println("============Inner grid validation=================");
         int cInterateStart = -3;
         int cIterateTill = 0;
         for (int i = 0; i < 3; i++) {
             System.out.println("+++++++++++" + i + "+++++++++++++");
             cInterateStart += 3;
             cIterateTill += 3;
+
             HashSet<String> hsCube = new HashSet<>();
             int rCt = 0;
             int rIterateTill = 3;
