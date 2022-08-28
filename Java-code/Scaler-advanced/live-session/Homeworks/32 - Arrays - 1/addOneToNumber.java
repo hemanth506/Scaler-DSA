@@ -26,6 +26,7 @@ public class addOneToNumber {
         } else {
             B = A;
         }
+        
         N = B.size();
         System.out.println("new length => " + N);
         System.out.println(B);
