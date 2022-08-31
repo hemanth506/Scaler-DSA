@@ -7,6 +7,7 @@ public class maxNonNegativeSubArray {
         System.out.println(A);
         System.out.println("===================================");
         
+        // split to the left when you find the negative value and find the sum
         long total;
         int arrLength;
         long maxTotal = 0;
@@ -30,16 +31,12 @@ public class maxNonNegativeSubArray {
                     if (total > maxTotal) {
                         maxTotal = total;
                         maxArrLength = arrLength;
-                        // System.out.println("starting ind => " + (j + 1) + " val => " + A.get(j + 1));
-                        // System.out.println("ending ind => " + (i - 1) + " val => " + A.get(i - 1));
                         startingIndex = j + 1;
                         endingIndex = i - 1;
                     } else if (total == maxTotal) {
                         maxTotal = total;
                         if (arrLength > maxArrLength) {
                             maxArrLength = arrLength;
-                            // System.out.println("starting ind => " + (j + 1) + " val => " + A.get(j + 1));
-                            // System.out.println("ending ind => " + (i - 1) + " val => " + A.get(i - 1));
                             startingIndex = j + 1;
                             endingIndex = i - 1;
                         }
@@ -66,10 +63,6 @@ public class maxNonNegativeSubArray {
         if (total > maxTotal) {
             maxTotal = total;
             maxArrLength = arrLength;
-            // System.out.println("starting ind => " + (i + 1) + " val => " + A.get(i + 1));
-            // System.out.println("ending ind => " + (N - 1) + " val => " + A.get(N - 1));
-            // System.out.println("total => " + total + " " + maxTotal);
-            // System.out.println("length => " + arrLength + " " + maxArrLength);
             startingIndex = i + 1;
             endingIndex = N - 1;
 
@@ -77,10 +70,6 @@ public class maxNonNegativeSubArray {
             maxTotal = total;
             if (arrLength > maxArrLength) {
                 maxArrLength = arrLength;
-                // System.out.println("starting ind => " + (i + 1) + " val => " + A.get(i + 1));
-                // System.out.println("ending ind => " + (N - 1) + " val => " + A.get(N - 1));
-                // System.out.println("total => " + total + " " + maxTotal);
-                // System.out.println("length => " + arrLength + " " + maxArrLength);
                 startingIndex = i + 1;
                 endingIndex = N - 1;
             }
