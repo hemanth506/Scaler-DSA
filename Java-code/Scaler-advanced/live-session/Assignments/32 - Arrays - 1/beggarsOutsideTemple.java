@@ -26,7 +26,7 @@ public class beggarsOutsideTemple {
         return intArr;
     }
 
-    // working solution:
+    // working solution: PrefixSum with slight modification
     public ArrayList<Integer> solve(int A, ArrayList<ArrayList<Integer>> B) {
         int[] intArr = new int[A];
         
