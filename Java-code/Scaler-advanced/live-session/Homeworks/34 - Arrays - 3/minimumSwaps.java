@@ -26,27 +26,31 @@ public class minimumSwaps {
         for (int i = 1; i < N; i++) {
             A.set(i, A.get(i - 1) + A.get(i));
         }
-        // System.out.println(A + " " + lessThanBct);
+        System.out.println(A + " " + lessThanBct);
 
         int minVal = Integer.MAX_VALUE;
         for (int i = 0; i < N - lessThanBct + 1; i++) {
+            System.out.print("i= " + i + " window => " + (i + lessThanBct - 1)  + " ");
             if (i != 0) {
-                minVal = Integer.min(minVal, A.get(i + lessThanBct - 1) - A.get(i-1));
+                System.out.println(A.get(i + lessThanBct - 1) + " - " + A.get(i-1) + " = " + (A.get(i + lessThanBct - 1) - A.get(i-1)));
+                minVal = Integer.min(minVal, A.get(i + lessThanBct - 1) - A.get(i - 1));
             } else {
+                System.out.println((A.get(i + lessThanBct - 1)));
                 minVal = Integer.min(minVal, A.get(i + lessThanBct - 1));
             }
         }
 
-        // System.out.println(minVal);
+        System.out.println(minVal);
 
         return minVal;
     }
     public static void main(String[] args) {
         minimumSwaps min = new minimumSwaps();
-        // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1, 12, 10, 3, 14, 10, 5));
-        ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(5,17,100,95,11,12,13,14,98,17,23,19));
+        ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(1, 12, 10, 3, 14, 10, 5));
+        int B = 8;
 
-        int B = 20;
+        // ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(5,17,100,95,11,12,13,14,98,17,23,19));
+        // int B = 20;
         
         min.solve(A, B);
     }
