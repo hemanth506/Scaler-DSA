@@ -27,6 +27,7 @@ public class mergeIntervals {
         ArrayList<Interval> finalInter = new ArrayList<Interval>();
         Interval tempInter;
 
+        // Separate from all the intervals
         if (N == 0 || mergeEnd < intervals.get(0).end) {
             tempInter = new Interval(mergeStart, mergeEnd);
             finalInter.add(tempInter);
@@ -35,18 +36,20 @@ public class mergeIntervals {
                 return finalInter;
             }
         }
+
         for (int i = 0; i < N; i++) {
             int intStart = intervals.get(i).start;
             int intEnd = intervals.get(i).end;
 
+            // Before point
             if(intEnd < mergeStart) {
-                System.out.println("Before");
+                // System.out.println("Before");
                 tempInter = new Interval(intStart, intEnd);
                 finalInter.add(tempInter);
             } 
             else if (intEnd >= mergeStart) {
-                System.out.println("Merge / After");
                 System.out.println(mergeEnd + "  " + intEnd);
+                // after point
                 if (intStart > mergeEnd) {
                     if (firstTime || (!alreadyAdded && mergeEnd < intEnd)) {
                         tempInter = new Interval(mergeStart, mergeEnd);
@@ -58,6 +61,7 @@ public class mergeIntervals {
                     firstTime = false;
                     existAftrInterval = true;
                 }
+                // merge point
                 else {
                     mergeStart = Integer.min(mergeStart, intStart);
                     mergeEnd = Integer.max(mergeEnd, intEnd);
