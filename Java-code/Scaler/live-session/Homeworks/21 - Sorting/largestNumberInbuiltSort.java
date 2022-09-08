@@ -13,14 +13,15 @@ public class largestNumberInbuiltSort {
         if(A.get(0).equals(0)) {
             return "0";   
         }
-        
+
         StringBuilder stbr = new StringBuilder();
-        for(int i =0;i<A.size();i++) {
+        for (int i = 0; i < A.size(); i++) {
             stbr.append(A.get(i));
         }
         System.out.println(stbr.toString());
         return stbr.toString();
     }
+
     public static void main(String[] args) {
         largestNumberInbuiltSort lgin = new largestNumberInbuiltSort();
         List<Integer> A = new ArrayList<Integer>(Arrays.asList(3, 30, 34, 5, 9));
@@ -34,7 +35,7 @@ class inBuiltSortComparator implements Comparator<Integer> {
         // converting the integers as strings and merging them
         String first = String.valueOf(o1) + String.valueOf(o2);
         String second = String.valueOf(o2) + String.valueOf(o1);
-        
+
         // comparing as string itself
         return second.compareTo(first);
     }
