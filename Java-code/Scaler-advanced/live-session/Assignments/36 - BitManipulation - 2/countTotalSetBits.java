@@ -39,9 +39,13 @@ public class countTotalSetBits {
         A += 1;
         for (int i = 0; i < 31; i++) {
             long cellSize = 2 << i;
-            long halfCellSize = cellSize / 2;
+            System.out.println((1 << i) + " " + (2 << i));
+            System.out.println();
             long complete = A / cellSize;
             long remaining = A % cellSize;
+            long halfCellSize = cellSize / 2;
+
+            // will check only for valid 2<<i, since we are checking for all the 32 bits it will be avoided by the below condition
             if (remaining <= cellSize) {
                 count += complete * halfCellSize;
                 // System.out.print(cellSize + " " + complete + " " + remaining);
