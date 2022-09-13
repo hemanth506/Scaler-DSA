@@ -36,11 +36,12 @@ public class countTotalSetBits {
     public int solve(int A) {
         long count = 0;
         long modV = 1000000007;
+        // since we are including zero, so we are adding +1 in that.
         A += 1;
+        
         for (int i = 0; i < 31; i++) {
             long cellSize = 2 << i;
             System.out.println((1 << i) + " " + (2 << i));
-            System.out.println();
             long complete = A / cellSize;
             long remaining = A % cellSize;
             long halfCellSize = cellSize / 2;
