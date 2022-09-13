@@ -14,10 +14,13 @@ public class differentBitSumXOR {
                 }
             }
 
-            // System.out.println(setCt + " " + unsetCt + " " + bitsV);
+            // we need to check of for the required bit, not for the entire 32 bit which doesn't have any one in that bit. SO we are multiplying it by setBt.
             totalSum += ((setCt * (N - setCt))% mod);
+            System.out.println(N + " " + setCt + " " + (setCt * (N - setCt)) + " " + totalSum);
             totalSum %= mod;
         }
+        
+        // we are checking that only for each bit in "totalSum" but if we want to make it as pair wise, we have to multiple by 2, since pair is a combo of 2.
         int diffBit = (int) (totalSum*2) % mod;
         System.out.println(diffBit);
         return diffBit;
