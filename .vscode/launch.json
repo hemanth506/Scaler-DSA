@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch triplets",
+            "request": "launch",
+            "mainClass": "triplets",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
