@@ -61,7 +61,7 @@ public class maxSumSubmatrix {
         // A.add(new ArrayList<Integer>(Arrays.asList(0, -9, -6, -16, -5)));
         // A.add(new ArrayList<Integer>(Arrays.asList(29, 9, -25, -7, -25)));
 
-        int[] arr = {-6, -21, 27, 19, 19};
+        // int[] arr = {-6, -21, 27, 19, 19};
         // ms.kadane(arr);
         // ms.kad(arr);
 
