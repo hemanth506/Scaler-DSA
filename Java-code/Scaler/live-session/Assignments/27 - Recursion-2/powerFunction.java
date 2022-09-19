@@ -24,15 +24,13 @@ public class powerFunction {
         } else {
             return ((result * result % C) * A) % C;
         }
-        // long result = res(A, B-1, C);
-        // return (A * result) % C;
     }
 
     public int pow(int A, int B, int C) {
         long result = res(A, B, C);
         long finRes = 0;
         if (result < 0) {
-            finRes = C + result;
+            finRes = result + C;
             System.out.println(C + " + " + result + " = " + finRes);
         } else {
             finRes = result % C;
