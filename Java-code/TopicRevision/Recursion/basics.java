@@ -9,11 +9,13 @@ public class basics {
 
     public void NAscending(int num) {
         if(num == 1) {
-            System.out.println(num);
+            System.out.println("Descending => " + num);
+            System.out.println("Ascending => " + num);
             return;
         }
+        System.out.println("Descending => " + num);
         NAscending(num - 1);
-        System.out.println(num);
+        System.out.println("Ascending => " + num);
     }
 
     public void NDescending(int num) {
@@ -62,7 +64,7 @@ public class basics {
         int A = bc.sumNnatural(10);
         // System.out.println(A);
 
-        // bc.NAscending(10);
+        bc.NAscending(10);
         // bc.NDescending(10);
 
         String str = "dooddooad";
@@ -76,6 +78,6 @@ public class basics {
         
         int val = 2;
         int pow = 5;
-        System.out.println(bc.powVal(val, pow));
+        // System.out.println(bc.powVal(val, pow));
     }
 }
