@@ -61,23 +61,23 @@ public class basics {
     public static void main(String[] args) {
         basics bc = new basics();
 
-        int A = bc.sumNnatural(10);
+        // int A = bc.sumNnatural(10);
         // System.out.println(A);
 
         bc.NAscending(10);
         // bc.NDescending(10);
 
-        String str = "dooddooad";
-        int s = 1;
-        int e = 6;
+        // String str = "dooddooad";
+        // int s = 1;
+        // int e = 6;
         // System.out.println(bc.checkPalindrome(str, s, e));
 
-        int sumN = 1234;
-        int sumV = bc.sumOfDigits(sumN);
+        // int sumN = 1234;
+        // int sumV = bc.sumOfDigits(sumN);
         // System.out.println(sumV);
         
-        int val = 2;
-        int pow = 5;
+        // int val = 2;
+        // int pow = 5;
         // System.out.println(bc.powVal(val, pow));
     }
 }
