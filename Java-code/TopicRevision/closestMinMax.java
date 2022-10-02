@@ -1,8 +1,7 @@
 
 public class closestMinMax {
 
-    public closestMinMax() {
-
+    public void test() {
         // int[] arr = {1,2,3,1,3,4,6,4,6,3};
         // int[] arr = {2,2,6,4,5,1,5,2,6,4,1};
         int[] arr = {8,8,8,8,8,8,8,8};
@@ -56,10 +55,6 @@ public class closestMinMax {
             }
             System.out.println(minLength);
         }
-
-    }
-
-    void test() {
         System.out.println("=========================");
     }
     public static void main(String[] args) {
