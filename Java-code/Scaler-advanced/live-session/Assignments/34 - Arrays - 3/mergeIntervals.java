@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+//  Refer practise code for better logic and understanding.
 class Interval {
     int start;
     int end;
