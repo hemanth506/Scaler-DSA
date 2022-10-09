@@ -15,6 +15,7 @@ public class sortedPermutationRank {
                 }
             }
 
+            // instead of this find factorial and store it in hashmap.
             if(ctChar != 0) {
                 System.out.println(N-i);
                 int sumV = 1;
