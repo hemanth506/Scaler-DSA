@@ -57,4 +57,6 @@ public class closestMinMax {
 
         cl.solve(A);
     }
+    public void test() {
+    }
 }
