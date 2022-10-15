@@ -1,5 +1,5 @@
 
-public class closestMinMax {
+public class closestMinMaxVal {
 
     public void test() {
         // int[] arr = {1,2,3,1,3,4,6,4,6,3};
@@ -58,7 +58,7 @@ public class closestMinMax {
         System.out.println("=========================");
     }
     public static void main(String[] args) {
-        closestMinMax close = new closestMinMax();
+        closestMinMaxVal close = new closestMinMaxVal();
         close.test();
     }
 }
