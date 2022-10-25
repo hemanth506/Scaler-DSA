@@ -4,11 +4,11 @@ import java.util.Collections;
 
 /* First from down to up and then left to right.
  * 0 --> 1 --> 2 --> 3 --> 4 --> 5
- *   ^
+ *   /\
  * 1 |
- *   ^
+ *   /\
  * 2 |
- *   ^
+ *   /\
  * 3 |
  */
 public class sortMartixDiagonally1329Q {
