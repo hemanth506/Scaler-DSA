@@ -76,7 +76,7 @@ public class searchInRotatedSortedArray {
     }
 
 
-    // Using one iteration: check whether it is in given range (l to m) or (m to h)
+    // Using one iteration: check whether it is in given range (l to m) or (m to h) - O(log^N)
     // Refered this link https://www.youtube.com/watch?v=oTfPJKGEHcc
     public int search(int[] nums, int target) {
         int l = 0;
