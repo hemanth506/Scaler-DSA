@@ -53,7 +53,11 @@ public class evaluateExpression {
         evaluateExpression ee = new evaluateExpression();
         // ArrayList<String> A = new ArrayList<String>(Arrays.asList("2", "1", "+", "3", "*"));
         // ArrayList<String> A = new ArrayList<String>(Arrays.asList("4", "13", "5", "/", "+"));
-        ArrayList<String> A = new ArrayList<String>(Arrays.asList("2", "2", "/"));
+        // ArrayList<String> A = new ArrayList<String>(Arrays.asList("2", "2", "/"));
+        // ArrayList<String> A = new ArrayList<String>(Arrays.asList("1", "1", "+", "1","+","-"));
+        // ab+c+-
+        ArrayList<String> A = new ArrayList<String>(Arrays.asList("1", "-","1","-","1","-"));
+        // a-b-c-
         
         ee.evalRPN(A);
     }
