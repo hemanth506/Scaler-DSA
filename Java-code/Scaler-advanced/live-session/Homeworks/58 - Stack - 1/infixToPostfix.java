@@ -69,7 +69,10 @@ public class infixToPostfix {
 
     public static void main(String[] args) {
         infixToPostfix ip = new infixToPostfix();
-        String A = "a+b*(c^d-e)^(f+g*h)-i";
+        // String A = "a+b*(c^d-e)^(f+g*h)-i";
+        // String A = "-(a+b+c)";
+        String A = "-a-b-c";
+
         ip.solve(A);
     }
 }
