@@ -2,6 +2,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+        left = null;
+        right = null;
+    }
+}
+
 public class serialization {
     public ArrayList<Integer> solve(TreeNode A) {
         TreeNode tempA = A;
