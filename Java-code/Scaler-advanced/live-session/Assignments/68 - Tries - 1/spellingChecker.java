@@ -21,7 +21,7 @@ public class spellingChecker {
         for(int i = 0; i < B.size(); i++) {
             result.add(searchWord(root, B.get(i)));
         }
-
+        System.out.println(result);
         return result;
     }
     public void insertword(Node root, String word) {
