@@ -338,8 +338,19 @@ public class Demo{
 
         // newDemo.exitCondition();
 
-        newDemo.maxMinOFArr();
+        // newDemo.maxMinOFArr();
+
+        booleanXORComp();
 
         scan.close();
+    }
+
+    private static void booleanXORComp() {
+        System.out.println(true ^ false);
+        System.out.println(false ^ false);
+        System.out.println(true ^ true);
+        System.out.println("========================");
+        System.out.println(true | true);
+
     }
 }
