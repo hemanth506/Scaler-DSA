@@ -298,7 +298,7 @@ public class Demo{
         System.out.println("Congrats Hemanth for starting Java");
 
         Scanner scan = new Scanner(System.in);
-        Demo newDemo = new Demo();
+        // Demo newDemo = new Demo();
 
         // newDemo.arraysLearnings();
         // newDemo.dataTypes();
