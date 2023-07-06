@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "zigzagConversion",
+            "request": "launch",
+            "mainClass": "zigzagConversion",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
             "name": "Launch triplets",
             "request": "launch",
             "mainClass": "triplets",
