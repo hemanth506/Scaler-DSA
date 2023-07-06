@@ -344,6 +344,7 @@ public class Demo {
         // booleanXORComp();
 
         assignment();
+        booleanXORComp();
         scan.close();
     }
 
