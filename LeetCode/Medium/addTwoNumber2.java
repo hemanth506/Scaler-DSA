@@ -1,12 +1,4 @@
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-}
+import Medium.ListNode;
 
 
 public class addTwoNumber2 {
