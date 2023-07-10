@@ -1,0 +1,15 @@
+{
+  "name": "js-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Basics.js",
+  "scripts": {
+    "devStart": "nodemon Basics.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

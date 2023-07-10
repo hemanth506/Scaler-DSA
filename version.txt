@@ -3,3 +3,6 @@ Python 3.9.7
 
 Java version:
 java 18.0.1.1
+
+Node version:
+v16.14.0
