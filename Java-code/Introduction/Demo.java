@@ -343,9 +343,18 @@ public class Demo {
 
         // booleanXORComp();
 
+        
+        typeChecking();
+
         assignment();
         booleanXORComp();
         scan.close();
+    }
+
+    private static void typeChecking() {
+        Object a = 10;
+        a = "hello hemanth";
+        System.out.println(a);
     }
 
     private static void assignment() {
