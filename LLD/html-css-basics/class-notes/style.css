@@ -1,0 +1,55 @@
+/* 
+Group selectors
+#p1, .p2, div>p{
+    color: red;
+}
+
+div>p {
+    font-size: x-large;
+}
+
+.p2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+*/
+
+/* 
+Universal selectors
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+*/
+
+/* .p2#welcome {
+    color: red;
+}
+
+#div1 .p2 {
+    color: blue;
+}
+
+[value="click me"] {
+    background: yellowgreen;
+}
+
+[value="double click me"] {
+    background: yellow;
+}
+
+div:hover #copy~l1 {
+    background: pink;
+} */
+
+div {
+    padding: 20px;
+    padding-top: 60px;
+    padding-right: 40px;
+    padding: 30px;
+    padding-bottom: 50px;
+    padding-left: 70px;
+    border: 1px solid;
+}
+p {
+    border: 1px solid;
+}

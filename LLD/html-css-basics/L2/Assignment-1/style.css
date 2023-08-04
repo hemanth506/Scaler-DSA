@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.card {
+    height: 400px;
+    width: 400px;
+    border: 30px solid #7D5A44;
+    background-color: #EBE0C7;
+    line-height: 25px;
+    box-shadow: 0 10px 22px 10px rgba(27, 38, 49, 0.1);
+    color: #7D5A44;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 > span {
+    text-decoration: overline;
+    font-size: 15px;
+}
