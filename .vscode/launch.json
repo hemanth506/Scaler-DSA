@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "partitionArrayIntoDisjointIntervals_Q915",
+            "request": "launch",
+            "mainClass": "partitionArrayIntoDisjointIntervals_Q915",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
