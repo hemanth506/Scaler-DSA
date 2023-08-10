@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "maxiNumberOfGroupsEntering_Q2358",
+            "request": "launch",
+            "mainClass": "maxiNumberOfGroupsEntering_Q2358",
+            "projectName": "Python-code_ec631690"
+        },
+        {
+            "type": "java",
             "name": "partitionArrayIntoDisjointIntervals_Q915",
             "request": "launch",
             "mainClass": "partitionArrayIntoDisjointIntervals_Q915",
