@@ -1,0 +1,38 @@
+#parent {
+  border: 1px solid red;
+  border-radius: 5px;
+
+  display: grid;
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-template-columns: [start] 1fr 
+                         [col-1] 1fr 
+                         [col-2] 1fr 
+                         [end]; */
+
+  /* grid-template-columns: 1fr minmax(100px, 1fr) 1fr; */
+
+
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: 50px 80px; */
+  grid-auto-rows: 50px; 
+
+  align-items: center;
+  justify-items: start;
+  
+  align-content: end;
+  justify-content: end;
+}
+
+.one, .three, .seven {
+  color: blue;
+  /* grid-column-start: col-1;
+  grid-column-end: end; */
+}
+
+.item {
+  font-size: large;
+  /* text-align: center; */
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 3px 5px;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    :root {
+      --card_width: 250px;
+      --row_increment: 10px;
+      --card_border_radius: 16px;
+      --card_small: 26;
+      --card_medium: 33;
+      --card_large: 45;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      padding-top: 5px;
+      background-color: grey;
+    }
+
+    .pin_container {
+      margin: 0;
+      padding: 0;
+      width: 80vw;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, var(--card_width));
+      grid-auto-rows: var(--row_increment);
+      justify-content: center;
+
+      background-color: black;
+    }
+
+    .card {
+      padding: 0;
+      margin: 15px 10px;
+      border-radius: var(--card_border_radius);
+      /* background-color: green; */
+    }
+
+    .card_small {
+      grid-row-end: span var(--card_small);
+    }
+
+    .card_medium {
+      grid-row-end: span var(--card_medium);
+    }
+
+    .card_large {
+      grid-row-end: span var(--card_large);
+    }
+
+    img {
+      border-radius: 16px;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pin_container">
+    <div class="card card_small">
+      <img
+        src="https://images.pexels.com/photos/18277222/pexels-photo-18277222/free-photo-of-cinematic-view.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" />
+    </div>
+    <div class="card card_medium">
+      <img src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&w=400"
+        alt="">
+    </div>
+    <div class="card card_large">
+      <img
+        src="https://images.pexels.com/photos/18122798/pexels-photo-18122798/free-photo-of-man-posing-in-white-t-shirt.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+        alt="">
+    </div>
+    <div class="card card_medium">
+      <img src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&w=400"
+        alt="">
+    </div>
+    <div class="card card_small"><img
+        src="https://images.pexels.com/photos/18277222/pexels-photo-18277222/free-photo-of-cinematic-view.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" />
+    </div>
+    <div class="card card_large"><img
+        src="https://images.pexels.com/photos/18122798/pexels-photo-18122798/free-photo-of-man-posing-in-white-t-shirt.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+        alt=""></div>
+    <div class="card card_medium"><img
+        src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+    </div>
+    <div class="card card_small"><img
+        src="https://images.pexels.com/photos/18277222/pexels-photo-18277222/free-photo-of-cinematic-view.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" />
+    </div>
+    <div class="card card_medium"><img
+        src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+    </div>
+    <div class="card card_small"><img
+        src="https://images.pexels.com/photos/18277222/pexels-photo-18277222/free-photo-of-cinematic-view.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" />
+    </div>
+    <div class="card card_medium"><img
+        src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+    </div>
+    <div class="card card_large"><img
+        src="https://images.pexels.com/photos/18122798/pexels-photo-18122798/free-photo-of-man-posing-in-white-t-shirt.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+        alt=""></div>
+    <div class="card card_medium"><img
+        src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+    </div>
+    <div class="card card_small"><img
+        src="https://images.pexels.com/photos/18277222/pexels-photo-18277222/free-photo-of-cinematic-view.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" />
+    </div>
+    <div class="card card_medium"><img
+        src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+    </div>
+    <div class="card card_large"><img
+        src="https://images.pexels.com/photos/18122798/pexels-photo-18122798/free-photo-of-man-posing-in-white-t-shirt.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"
+        alt=""></div>
+  </div>
+</body>
+
+</html>
