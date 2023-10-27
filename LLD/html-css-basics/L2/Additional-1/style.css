@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    list-style: none;
+}
+
+body {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+}
+
+div.card {
+    width: 250px;
+    border: 2px solid abd lightgray;
+    padding: 25px 10px 50px 10px;
+    line-height: 30px;
+    box-shadow: 0 10px 22px 10px rgba(27, 38, 49, 0.1);
+}

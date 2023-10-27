@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<!-- Please NOTE that the link to assets (like images) need to be set in global context.
+For example:
+To access an image from assets folder correct way to set src attribute is 
+
+src = 'profile.png'
+
+instead of 
+
+src = './assets/profile.png'
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="doubleHolder">
+    <button class="double">double</button>
+  </div>
+
+  <script>
+    const doubleHolder = document.getElementById("doubleHolder")
+
+    const addNewButton = () => {
+      const newBtn = document.createElement("button");
+      newBtn.className = "double"
+      newBtn.innerText = "double"
+      newBtn.addEventListener("click", addNewButton);
+      console.log("🚀 ~ file: question-3.html:34 ~ addNewButton ~ newBtn:", newBtn)
+      doubleHolder.appendChild(newBtn);
+    }
+
+    const thisButton = document.getElementsByClassName("double")[0];
+    console.log("🚀 ~ file: question-3.html:40 ~ addDoubles ~ buttons:", thisButton);
+    thisButton.addEventListener("click", async () => {
+      thisButton.remove();
+      addNewButton();
+      addNewButton();
+    })
+  </script>
+</body>
+
+</html>
