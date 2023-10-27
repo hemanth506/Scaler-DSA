@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<!-- Please NOTE that the link to assets (like images) need to be set in global context.
+For example:
+To access an image from assets folder correct way to set src attribute is 
+
+src = 'profile.png'
+
+instead of 
+
+src = './assets/profile.png'
+-->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .cell {
+            border: 1px solid;
+            margin: auto;
+            margin-top: 10rem;
+            height: 20rem;
+            width: 20rem;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cell"></div>
+
+</body>
+<script>
+    // Write your JS program here
+    const elt = document.getElementsByClassName("cell")[0];
+    console.log("🚀 ~ file: question-2.html:37 ~ elt:", elt)
+    elt.addEventListener("mouseenter", (e) => {
+      elt.style.background = "url('jail.jpeg')"
+    });
+
+    elt.addEventListener("mouseleave", (e) => {
+      elt.style.background = "none";
+    })
+</script>
+</html>
