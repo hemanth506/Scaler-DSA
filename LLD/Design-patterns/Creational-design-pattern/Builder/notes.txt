@@ -1,0 +1,14 @@
+Use Case
+    When:
+        You have a class with lots of optional parameters
+        You want to avoid telescoping constructors (constructors with many arguments)
+        You want to make object creation more readable and flexible
+        You want to validate or do some manipulation before creating an object,
+
+
+Pros:
+    Improves readability
+
+cons: 
+    More boilerplate codes.
+    
