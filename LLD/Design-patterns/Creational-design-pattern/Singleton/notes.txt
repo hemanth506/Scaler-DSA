@@ -1,0 +1,67 @@
+Pros:
+    Resource Efficiency:
+        uses one resource, and use that in multiple places and even that is used which triggered again.
+    
+Cons:
+    Testing becomes difficult in singleton.
+
+
+======================== Additional ========================
+
+*) There is a concept called double check locking(DCL), where the same condition is added below,
+    to overcome multi threading in js using worker_thread
+
+*) If want to do locking in multiple worker_thread, there is an option in nodejs using Atomics and SharedArrayBuffer
+    (*) compareExchange
+    (*) wait
+    (*) store
+    (*) notify
+
+*) Eager Loading -> initiate the object inside the class itself. 
+    But in this we cannot pass arguments to the class.
+
+class CounterService {
+  private static instance: CounterService = new CounterService();
+  private constructor() {}
+
+  public static initiateCounter(): CounterService {
+    return CounterService.instance;
+  }
+}
+
+
+
+====================== Singleton using workers ========================================
+
+const { workerData } = require('worker_threads');
+
+const shared = new Int32Array(workerData.sharedBuffer);
+
+class Singleton {
+  static instance = null;
+
+  static getInstance() {
+    // 1st check
+    if (Singleton.instance === null) {
+      // Locking: simulate mutex using Atomics
+      while (Atomics.compareExchange(shared, 0, 0, 1) !== 0) {
+        Atomics.wait(shared, 0, 1); // wait if locked
+      }
+
+      // 2nd check inside lock
+      if (Singleton.instance === null) {
+        Singleton.instance = new Singleton();
+        console.log(`✅ Singleton created by Worker ${workerData.workerName}`);
+      }
+
+      // Release lock
+      Atomics.store(shared, 0, 0);
+      Atomics.notify(shared, 0);
+    }
+
+    return Singleton.instance;
+  }
+}
+
+module.exports = Singleton;
+
