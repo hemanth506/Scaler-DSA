@@ -1,0 +1,27 @@
+
+
+If there are lots of responsibilities for 1 class,
+we can split the task by creating another class and call than class.
+
+Just like helper files.
+
+
+class Amazon {
+  method1() {}
+  method2() {}
+  method3() {
+    const helper = new AmazonHelper();
+    helper.method1();
+    helper.method2();
+    helper.method3();
+  }
+}
+
+class AmazonHelper {
+    method1() {}
+    method2() {}
+    method3() {}
+    method4() {}
+    method5() {}
+    method6() {}
+}
