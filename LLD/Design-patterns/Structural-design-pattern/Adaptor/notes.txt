@@ -1,0 +1,12 @@
+
+If PhonePay was to use ICICI or HDFC APIs, it will create adaptors of that bank and use it.
+
+PhonePay will implement the interface, so both banks will have same functions.
+
+
+                            -> ICICI Bank adaptor  ->  ICICI API
+                            |
+phonePay ->  <<BANK_API>> --|
+                            |
+                            -> HDFC Bank adaptor  ->  HDFC API
+
