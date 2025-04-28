@@ -1,0 +1,3 @@
+Shared state: can be created once and use as reference
+Unique state: 
+Massive memory optimization!
