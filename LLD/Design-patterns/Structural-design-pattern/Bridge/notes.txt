@@ -1,0 +1,6 @@
+1) Bridge is about splitting big code into two independent parts so they can change separately without affecting each other.
+
+2) Think of it like building a bridge between two sides of a river:
+    One side is Abstraction (example: Remote Control)
+    Other side is Implementation (example: Device like TV, Light)
+    The bridge lets them connect, but they are still separate!
