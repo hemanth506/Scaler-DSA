@@ -1,0 +1,5 @@
+The Decorator Pattern lets you add new features or 
+behaviors to an object without changing its actual code.
+
+Instead of modifying the original class, 
+you wrap it inside another class (called a decorator) that adds extra behavior.
