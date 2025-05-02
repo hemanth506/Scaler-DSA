@@ -1,0 +1,5 @@
+The Strategy Design Pattern is a behavioral design pattern, it says as
+instead of hardcoding different behaviors in your main class, 
+delegate the behavior to separate strategy classes.
+
+This allows you to change the behavior (or strategy) of an object at runtime without changing the object’s code.
