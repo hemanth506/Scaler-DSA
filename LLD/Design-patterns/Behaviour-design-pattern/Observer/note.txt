@@ -1,0 +1,2 @@
+It is a pattern of creating publisher ans subscribers. 
+And do tasks on all the subscribers which is subscribed to the publisher.
