@@ -1,0 +1,50 @@
+<<PEN_DETAILS>>
+    bodyColor: string
+    bodyType: enum [metal, plastic]
+    hasEraser: boolean
+    eraser: ERASER
+    isClosed: enum
+    closingType: enum [cap, click, twist]
+    levelOfInk: number
+
+abstract Pen:
+    penDetails: PEN_DETAILS
+
+    write()
+    erase()
+    open()
+    close()
+
+Refill_Pen ----> Pen
+    penDetails: PEN_DETAILS
+    refill: REFILL
+
+
+Liquid_Pen ----> Pen
+    penDetails: PEN_DETAILS
+    nibDiameter: string
+    ink: INK
+    
+
+<<ERASER>>
+    size: number
+    position: string[2]
+    color: string
+
+<<INK>>
+    liquidType: string
+    density: string
+    
+<<REFILL>>
+    type: enum [Gel, ball]
+    inkDensity: string
+    stemDiameter: string
+    nibDiameter: string
+    lastRefill: Date;
+
+
+
+Optional:
+    writeAndSpeak()
+    scanAndSpeak()
+
