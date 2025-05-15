@@ -8,6 +8,7 @@ import {
 } from "./BotPlayingStrategy";
 import { Cell } from "./Cell";
 import promptSync from "prompt-sync";
+import { Game } from "./Game";
 
 export class Player {
   private symbol!: string;
@@ -61,28 +62,56 @@ export class Player {
     this.playerType = playerType;
   }
 
-  public makeMove(board: Board): Cell | null {
+  public makeMove(board: Board, game: Game): Cell | null {
     console.log(
       `${this.getName()}, It's your turn please make a move, enter row and column!`
     );
-    let row: number = this.prompt(`Row: `);
-    let col: number = this.prompt(`Column: `);
-
-    while (!this.validateMove(board, row, col)) {
-      console.log(
-        `Invalid entry, Please try again by entering a valid row and column`
-      );
-      row = this.prompt(`Row: `);
-      col = this.prompt(`Column: `);
+    let rowInput = this.prompt("Row: ");
+    if (rowInput === "q") {
+      game.undoMove();
+      return null;
     }
-    const cell: Cell = board.getBoard()[row][col];
-    cell.setCellState(CellState.FILLED);
-    cell.setPlayer(this);
-    return cell;
+
+    let colInput = this.prompt("Column: ");
+    if (colInput === "q") {
+      game.undoMove();
+      return null;
+    }
+    while (
+      Number.isNaN(rowInput) ||
+      Number.isNaN(colInput) ||
+      !this.validateMove(board, rowInput, colInput)
+    ) {
+      console.log(
+        `Invalid entry. Please try again by entering a valid row and column, or 'q' to quit.`
+      );
+
+      rowInput = this.prompt("Row: ");
+      if (rowInput === "q") {
+        game.undoMove();
+        return null;
+      }
+
+      colInput = this.prompt("Column: ");
+      if (colInput === "q") {
+        game.undoMove();
+        return null;
+      }
+    }
+    rowInput = parseInt(rowInput);
+    colInput = parseInt(colInput);
+
+    if (Number.isInteger(rowInput) && Number.isInteger(colInput)) {
+      const cell: Cell = board.getBoard()[rowInput][colInput];
+      cell.setCellState(CellState.FILLED);
+      cell.setPlayer(this);
+      return cell;
+    }
+    return null;
   }
 
   public validateMove(board: Board, row: number, col: number): boolean {
-    if(row < 0 || col < 0) {
+    if (row < 0 || col < 0) {
       return false;
     }
 
@@ -90,7 +119,7 @@ export class Player {
       return false;
     }
 
-    if(col >= board.getSize()) {
+    if (col >= board.getSize()) {
       return false;
     }
 
@@ -129,7 +158,7 @@ export class Bot extends Player {
 
   public makeMove(board: Board): Cell | null {
     if (this.botPlayingStrategy) {
-      console.log('Now', this.getName(),'made her move!');
+      console.log("Now", this.getName(), "made her move!");
       const cell: Cell | null = this.botPlayingStrategy.makeMove(board);
       if (cell) {
         cell.setCellState(CellState.FILLED);

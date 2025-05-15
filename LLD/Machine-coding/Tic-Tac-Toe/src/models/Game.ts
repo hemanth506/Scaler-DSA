@@ -1,4 +1,4 @@
-import { GameState, PlayerType } from "../../helper/enums";
+import { CellState, GameState, PlayerType } from "../../helper/enums";
 import { WinningStrategy } from "../../helper/types";
 import { Board } from "./Board";
 import { Cell } from "./Cell";
@@ -59,35 +59,72 @@ export class Game {
     this.board.printBoard();
   }
   public makeMove(): void {
+    console.log('this.getNextPlayerIndex()', this.getNextPlayerIndex())
     const player: Player = this.listOfPlayers[this.getNextPlayerIndex()];
-    const cell: Cell | null = player.makeMove(this.board)
+    const cell: Cell | null = player.makeMove(this.board, this);
 
-    if(cell) {
+    if (cell) {
       const move: Move = new Move(cell, player);
       this.getMoves().push(move);
-  
-      if(this.checkWinner(move, this.board)) {
-        this.setGameState(GameState.SUCCESS)
+
+      if (this.checkWinner(move, this.board)) {
+        this.setGameState(GameState.SUCCESS);
         this.setWinner(player);
-        return
-      }
-  
-      if(this.getMoves().length === this.board.getSize() * this.board.getSize()) {
-        this.setGameState(GameState.DRAW)
         return;
       }
-  
+
+      if (
+        this.getMoves().length ===
+        this.board.getSize() * this.board.getSize()
+      ) {
+        this.setGameState(GameState.DRAW);
+        return;
+      }
+
       this.setNextPlayerIndex(this.getNextPlayerIndex() + 1);
-      this.setNextPlayerIndex(this.getNextPlayerIndex() % this.listOfPlayers.length)
+      this.setNextPlayerIndex(
+        this.getNextPlayerIndex() % this.listOfPlayers.length
+      );
     }
   }
   public checkWinner(move: Move, board: Board): boolean {
-    for(let i = 0; i < this.winningStrategy.length; i++) {
-      if(this.winningStrategy[i].checkWinner(board, move)) {
-        return true
+    for (let i = 0; i < this.winningStrategy.length; i++) {
+      if (this.winningStrategy[i].checkWinner(board, move)) {
+        return true;
       }
     }
     return false;
+  }
+  public undoMove(): void {
+    if (this.moves.length >= 1) {
+      const poppedMove: Move | undefined = this.moves.pop();
+      if (poppedMove !== undefined) {
+
+        // Update the board
+        const row = poppedMove.getCell().getRow();
+        const col = poppedMove.getCell().getCol();
+        const cell: Cell = new Cell(row, col);
+        cell.setCellState(CellState.EMPTY);
+        cell.setPlayer(null);
+        const tempBoard = this.board.getBoard();
+        tempBoard[row][col] = cell;
+        this.board.setBoard(tempBoard);
+
+        // update the hashmap in the winningStrategies
+        for (let i = 0; i < this.winningStrategy.length; i++) {
+          this.winningStrategy[i].removeMove(poppedMove);
+        }
+
+        // todo work on this logic
+        // if(this.getNextPlayerIndex() === 0) {
+        //   this.setNextPlayerIndex(this.listOfPlayers.length - 1) 
+        // } else {
+        //   this.setNextPlayerIndex(this.getNextPlayerIndex() - 1);
+        // }
+      }
+    } else {
+      console.log("No moves to undo");
+    }
   }
 }
 

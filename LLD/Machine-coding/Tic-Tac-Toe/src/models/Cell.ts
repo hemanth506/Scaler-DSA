@@ -5,7 +5,7 @@ export class Cell {
     private row!: number
     private col!: number
     private cellState!: CellState
-    private player!: Player
+    private player: Player | null = null
 
     constructor(row: number, col: number) {
         this.row = row
@@ -34,12 +34,12 @@ export class Cell {
     public getPlayer() {
         return this.player
     }
-    public setPlayer(player: Player) {
+    public setPlayer(player: Player | null) {
         this.player = player
     }
     public displayCell(): string {
         if(this.cellState === CellState.FILLED) {
-            return `| ${this.player.getSymbol()} |`;
+            return `| ${this.player?.getSymbol()} |`;
         } else {
             return `| - |`;
         }

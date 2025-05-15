@@ -26,7 +26,7 @@ export class Board {
   public getBoard() {
     return this.board;
   }
-  public setFloor(board: Cell[][]) {
+  public setBoard(board: Cell[][]) {
     this.board = board;
   }
 

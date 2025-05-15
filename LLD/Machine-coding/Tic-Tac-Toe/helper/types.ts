@@ -4,6 +4,7 @@ import { Move } from "../src/models/Move";
 
 export interface WinningStrategy {
     checkWinner(board: Board, move: Move): boolean;
+    removeMove(move: Move): void
 }
 
 export interface BotPlayingStrategy {

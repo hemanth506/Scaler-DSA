@@ -9,7 +9,6 @@ import { ColumnWiseStrategy, DiagonalWiseStrategy, RowWiseStrategy } from "./src
     const players: Player[] = [];
     players.push(new Player('O', 'Hemanth', 0, PlayerType.HUMAN));
     players.push(new Bot('X', 'GPT', 1, PlayerType.BOT, DifficultyLevel.EASY));
-    // players.push(new Player('P', 'Ruchika', 2, PlayerType.HUMAN));
 
     
     const winningStrategy: WinningStrategy[] = [];
@@ -25,6 +24,7 @@ import { ColumnWiseStrategy, DiagonalWiseStrategy, RowWiseStrategy } from "./src
     }
 
     if(game.getGameState() === GameState.SUCCESS) {
+        gc.printBoard(game);
         console.log(`${game.getWinner()?.getName()} Congrats, You won the game!`)
     }
 

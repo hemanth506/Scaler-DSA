@@ -24,7 +24,7 @@ export class GameController {
     game.makeMove()
   }
 
-  public startGame(game: Game): void {
-    game.makeMove()
+  public undoMove(game: Game): void {
+    game.undoMove()
   }
 }
