@@ -7,7 +7,6 @@ export class ParkingSpot {
   levelId: string;
   isOccupied: OccupiedState;
   vehicle: Transport | null;
-  occupiedStartDateTime: Date | null;
 
   constructor(spotType: VehicleType, spotId: number, levelId: string) {
     this.spotType = spotType;
@@ -15,7 +14,6 @@ export class ParkingSpot {
     this.levelId = levelId;
     this.isOccupied = OccupiedState.AVAILABLE;
     this.vehicle = null;
-    this.occupiedStartDateTime = null
   }
 
   setIsOccupiedStatus(status: OccupiedState) {
@@ -26,9 +24,6 @@ export class ParkingSpot {
     this.vehicle = vehicle
   }
 
-  setOccupiedStartDateTime() {
-    this.occupiedStartDateTime = new Date()
-  }
 }
 
 

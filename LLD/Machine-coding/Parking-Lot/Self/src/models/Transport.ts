@@ -5,17 +5,14 @@ export class Transport {
   type: VehicleType;
   typeId: number;
   number: string;
-  color: string;
   ticket: Ticket | null;
   constructor(
     type: VehicleType,
     number: string,
-    color: string,
     typeId: number
   ) {
     this.type = type;
     this.number = number;
-    this.color = color;
     this.typeId = typeId;
     this.ticket = null
   }

@@ -27,7 +27,6 @@ export class EntryGate {
           ) {
             currentAllotment.setIsOccupiedStatus(OccupiedState.OCCUPIED);
             currentAllotment.setVehicle(vehicle);
-            currentAllotment.setOccupiedStartDateTime()
             currentLevel.decreaseTotalSpotsAvailablePerVehicleType(
               vehicleTypeId
             );

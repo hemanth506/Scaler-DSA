@@ -12,15 +12,13 @@ const getVehicleDetailsToEnterTheLot = (): Transport | undefined => {
       "Enter vehicle type? "
     ).toUpperCase() as VehicleType;
     const vehicleNumber = prompt("Enter vehicle number? ");
-    const vehicleColor = prompt("Enter vehicle color? ");
 
-    if (vehicleNumber && vehicleColor) {
+    if (vehicleNumber) {
       if (Object.values(VehicleType).includes(vehicleType)) {
         const vehicleTypeId = VehicleIndexMap[vehicleType];
         return new Transport(
           vehicleType,
           vehicleNumber,
-          vehicleColor,
           vehicleTypeId
         );
       } else {
