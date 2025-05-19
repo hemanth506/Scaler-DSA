@@ -1,4 +1,4 @@
-import { GateType, VehicleIndexMap, VehicleType } from "./helper/enums";
+import { GateType, vehicleIndexMap, VehicleType } from "./helper/enums";
 import { ParkingLotController } from "./src/controllers/ParkingLotController";
 import promptSync from "prompt-sync";
 import { Transport } from "./src/models/Transport";
@@ -17,7 +17,7 @@ const getVehicleDetailsToEnterTheLot = (): Transport | undefined => {
 
     if (vehicleNumber) {
       if (Object.values(VehicleType).includes(vehicleType)) {
-        const vehicleTypeId = VehicleIndexMap[vehicleType];
+        const vehicleTypeId = vehicleIndexMap[vehicleType];
         return new Transport(
           vehicleType,
           vehicleNumber,

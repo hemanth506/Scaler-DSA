@@ -1,7 +1,7 @@
 import {
-  FairPricingMap,
+  fairPricingMap,
   OccupiedState,
-  VehicleIndexMap,
+  vehicleIndexMap,
   VehicleType,
 } from "../../helper/enums";
 import { DEFAULT_ENTRY_GATE, Gate } from "./Gate";
@@ -186,13 +186,13 @@ export class ParkingLotBuilder {
       }
     }
 
-    if (this.vehicleTypeLength !== Object.keys(FairPricingMap).length) {
+    if (this.vehicleTypeLength !== Object.keys(fairPricingMap).length) {
       return new Error(
         "Transport count not matching based on vehicle fair pricing map!"
       );
     }
 
-    if (this.vehicleTypeLength !== Object.keys(VehicleIndexMap).length) {
+    if (this.vehicleTypeLength !== Object.keys(vehicleIndexMap).length) {
       return new Error(
         "Transport count not matching based on vehicle index map!"
       );

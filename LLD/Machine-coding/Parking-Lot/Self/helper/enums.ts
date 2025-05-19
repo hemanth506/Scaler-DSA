@@ -1,4 +1,4 @@
-import { FairDetails } from "./types";
+import { fairDetails } from "./types";
 
 export enum VehicleType {
   CAR = "CAR",
@@ -17,13 +17,13 @@ export enum OccupiedState {
   UNDER_SERVICE = "UNDER_SERVICE",
 }
 
-export const FairPricingMap: Record<VehicleType, FairDetails> = {
+export const fairPricingMap: Record<VehicleType, fairDetails> = {
   [VehicleType.BIKE]: { oneHr: 1000, oneMin: 100, oneSec: 10 },
   [VehicleType.CAR]: { oneHr: 2000, oneMin: 200, oneSec: 20 },
   [VehicleType.TRUCK]: { oneHr: 3000, oneMin: 300, oneSec: 30 },
 };
 
-export const VehicleIndexMap: Record<VehicleType, number> = {
+export const vehicleIndexMap: Record<VehicleType, number> = {
   [VehicleType.BIKE]: 0,
   [VehicleType.CAR]: 1,
   [VehicleType.TRUCK]: 2,
