@@ -6,6 +6,11 @@ export enum VehicleType {
   TRUCK = "TRUCK",
 }
 
+export enum GateType {
+    ENTRY = "ENTRY",
+    EXIT = "EXIT"
+}
+
 export enum OccupiedState {
   OCCUPIED = "OCCUPIED",
   AVAILABLE = "AVAILABLE",

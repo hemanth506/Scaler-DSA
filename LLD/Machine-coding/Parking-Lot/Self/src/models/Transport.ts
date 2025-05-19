@@ -25,21 +25,3 @@ export class Transport {
     return this.ticket;
   }
 }
-
-// export class CarVehicle extends Transport {
-//   constructor(number: string, color: string) {
-//     super(VehicleType.CAR, number, color);
-//   }
-// }
-
-// export class BikeVehicle extends Transport {
-//   constructor(number: string, color: string) {
-//     super(VehicleType.BIKE, number, color);
-//   }
-// }
-
-// export class TruckVehicle extends Transport {
-//   constructor(number: string, color: string) {
-//     super(VehicleType.TRUCK, number, color);
-//   }
-// }

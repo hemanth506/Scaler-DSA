@@ -9,7 +9,6 @@ export class ParkingLotController {
     return ParkingLot.getBuilder()
       .setNoOfLevels(noOfLevels)
       .setTotalSpotsAllotedPerVehicleType(totalSpotsAllotedPerVehicleType)
-      .setEntryGate()
       .build();
   }
 

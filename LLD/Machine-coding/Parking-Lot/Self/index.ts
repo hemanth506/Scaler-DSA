@@ -29,7 +29,7 @@ const getVehicleDetailsToEnterTheLot = (): Transport | undefined => {
     } else {
       runExecution = false;
       console.log(
-        "Invalid vehicle number or color. Please enter the vehicle details again!"
+        "Invalid vehicle number. Please enter the vehicle details again!"
       );
     }
   }
