@@ -1,3 +1,4 @@
+import { Gate } from "../models/Gate";
 import { ParkingLot } from "../models/ParkingLot";
 import { Transport } from "../models/Transport";
 
@@ -12,8 +13,8 @@ export class ParkingLotController {
       .build();
   }
 
-  public incomingVehicle(vehicle: Transport, parkingLot: ParkingLot) {
-    parkingLot.handleIncomingVehicle(vehicle);
+  public incomingVehicle(vehicle: Transport, parkingLot: ParkingLot, gate: Gate) {
+    parkingLot.handleIncomingVehicle(vehicle, gate);
   }
 
   public displayDashboard(parkingLot: ParkingLot) {

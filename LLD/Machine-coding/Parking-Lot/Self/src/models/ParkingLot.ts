@@ -4,6 +4,7 @@ import {
   VehicleIndexMap,
   VehicleType,
 } from "../../helper/enums";
+import { DEFAULT_ENTRY_GATE, Gate } from "./Gate";
 import { Level } from "./Level";
 import { ParkingSpot } from "./ParkingSpot";
 import { Ticket } from "./Ticket";
@@ -42,7 +43,7 @@ export class ParkingLot {
     return tempLevel;
   }
 
-  public handleIncomingVehicle(vehicle: Transport) {
+  public handleIncomingVehicle(vehicle: Transport, gate: Gate) {
     const availability = this.checkForAvailability(vehicle);
     if (availability) {
       const [i, j]: [number, number] = availability;
@@ -56,7 +57,7 @@ export class ParkingLot {
         parseInt(tempLevelId),
         parseInt(tempSpotId),
       ]);
-      this.provideTicket(vehicle);
+      this.provideTicket(vehicle, gate);
     } else {
       console.log(
         "😢 Sorry 🙏🏼, As of now there are no empty spot for your vehicle to park, requesting to wait in the queue,"
@@ -65,8 +66,8 @@ export class ParkingLot {
     }
   }
 
-  private provideTicket(vehicle: Transport) {
-    const ticket = new Ticket(vehicle.type);
+  private provideTicket(vehicle: Transport, gate: Gate) {
+    const ticket = new Ticket(vehicle.type, gate);
     vehicle.setTicket(ticket);
     console.log("📥 Ticket issued to vehicle:", vehicle.number);
   }
@@ -114,7 +115,7 @@ export class ParkingLot {
     ];
     if (parkingSpot.vehicle?.ticket) {
       const fairAmount =
-        parkingSpot.vehicle.ticket.calculateFair(vehicleNumber);
+        parkingSpot.vehicle.ticket.calculateFair(vehicleNumber, parkingSpot.vehicle.type);
       this.totalAmountCollected = this.totalAmountCollected + fairAmount;
       this.removeVehicleOrAllocateQueuedVehicle(
         parkingSpot,
@@ -143,7 +144,7 @@ export class ParkingLot {
         if (poppedVehicle) {
           parkingSpot.setVehicle(null);
           parkingSpot.vehicle = poppedVehicle;
-          this.provideTicket(poppedVehicle);
+          this.provideTicket(poppedVehicle, DEFAULT_ENTRY_GATE);
           this.parkedVehicle.set(poppedVehicle.number, [levelId, spotId]);
         }
       }

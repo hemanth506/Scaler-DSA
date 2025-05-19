@@ -1,18 +1,23 @@
 import { FairPricingMap, VehicleType } from "../../helper/enums";
 import { FairDetails } from "../../helper/types";
+import { Gate } from "./Gate";
+import { v4 as uuidv4 } from "uuid"
 
 export class Ticket {
+  id: string
   vehicleType: VehicleType;
-  fairDetails: FairDetails;
   startTime: Date;
+  gate: Gate;
 
-  constructor(vehicleType: VehicleType) {
+  constructor(vehicleType: VehicleType, gate: Gate) {
+    this.id = uuidv4()
     this.vehicleType = vehicleType;
-    this.fairDetails = FairPricingMap[vehicleType];
     this.startTime = new Date();
+    this.gate = gate
   }
 
-  public calculateFair(vehicleNumber: string) {
+  public calculateFair(vehicleNumber: string, vehicleType: VehicleType) {
+    const fairDetails: FairDetails = FairPricingMap[vehicleType]
     const startTime = this.startTime;
     const endTime = new Date();
     const diffInMilliseconds = endTime.getTime() - startTime.getTime();
@@ -22,15 +27,15 @@ export class Ticket {
 
     let amount = 0;
     if (seconds) {
-      amount = amount + seconds * this.fairDetails.oneSec;
+      amount = amount + seconds * fairDetails.oneSec;
     }
 
     if (minutes) {
-      amount = amount + seconds * this.fairDetails.oneMin;
+      amount = amount + seconds * fairDetails.oneMin;
     }
 
     if (hours) {
-      amount = amount + seconds * this.fairDetails.oneHr;
+      amount = amount + seconds * fairDetails.oneHr;
     }
 
     console.log(
