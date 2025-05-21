@@ -1,13 +1,13 @@
 import {
   fairPricingMap,
   OccupiedState,
+  ResponseType,
   vehicleIndexMap,
   VehicleType,
 } from "../../helper/enums";
-import { DEFAULT_ENTRY_GATE, Gate } from "./Gate";
+import { Gate } from "./Gate";
 import { Level } from "./Level";
 import { ParkingSpot } from "./ParkingSpot";
-import { Ticket } from "./Ticket";
 import { Transport } from "./Transport";
 
 export class ParkingLot {
@@ -15,14 +15,12 @@ export class ParkingLot {
   levels: Level[];
   parkedVehicle: Map<string, [number, number]>;
   waitingQueue: Transport[][];
-  totalAmountCollected: number;
 
   constructor(noOfLevels: number, totalSpotsAllotedPerVehicleType: number[][]) {
     this.noOfLevels = noOfLevels;
     this.levels = this.setInitialLevels(totalSpotsAllotedPerVehicleType);
     this.parkedVehicle = new Map();
     this.waitingQueue = this.setDefaultWaitingQueue();
-    this.totalAmountCollected = 0;
   }
 
   private setDefaultWaitingQueue(): Transport[][] {
@@ -43,7 +41,7 @@ export class ParkingLot {
     return tempLevel;
   }
 
-  public handleIncomingVehicle(vehicle: Transport, gate: Gate) {
+  public handleIncomingVehicle(vehicle: Transport, gate: Gate): ResponseType {
     const availability = this.checkForAvailability(vehicle);
     if (availability) {
       const [i, j]: [number, number] = availability;
@@ -57,19 +55,14 @@ export class ParkingLot {
         parseInt(tempLevelId),
         parseInt(tempSpotId),
       ]);
-      this.provideTicket(vehicle, gate);
+      return ResponseType.SLOT_ALLOTED
     } else {
       console.log(
         "😢 Sorry 🙏🏼, As of now there are no empty spot for your vehicle to park, requesting to wait in the queue,"
       );
       this.waitingQueue[vehicle.typeId].push(vehicle);
+      return ResponseType.PUSHED_TO_QUEUE
     }
-  }
-
-  private provideTicket(vehicle: Transport, gate: Gate) {
-    const ticket = new Ticket(vehicle.type, gate);
-    vehicle.setTicket(ticket);
-    console.log("📥 Ticket issued to vehicle:", vehicle.number);
   }
 
   private checkForAvailability(vehicle: Transport): [number, number] | null {
@@ -98,7 +91,7 @@ export class ParkingLot {
     return null;
   }
 
-  public displayDashboard() {
+  public displayDashboard(): void {
     console.log("🚀 ~ this ~", JSON.stringify(this, null, 2));
     console.log("🅿️ Parked vehicle: ", [...this.parkedVehicle.entries()]);
   }
@@ -107,51 +100,50 @@ export class ParkingLot {
     const location = this.parkedVehicle.get(vehicleNumber);
     if (!location) {
       console.log(`❌ ~ Vehicle number ${vehicleNumber} not exist!`);
-      return;
+      return null;
     }
     const [levelId, spotId] = location;
     const parkingSpot = (this.levels[levelId].allotments as ParkingSpot[])[
       spotId
     ];
     if (parkingSpot.vehicle?.ticket) {
-      const fairAmount =
-        parkingSpot.vehicle.ticket.calculateFair(vehicleNumber, parkingSpot.vehicle.type);
-      this.totalAmountCollected = this.totalAmountCollected + fairAmount;
-      this.removeVehicleOrAllocateQueuedVehicle(
-        parkingSpot,
-        location,
-        vehicleNumber
-      );
+      const fairAmount = parkingSpot.vehicle.ticket.calculateFair(vehicleNumber, parkingSpot.vehicle.type) || 0;
+      const vehicleTypeId = parkingSpot.vehicle?.typeId;
+      this.levels[levelId].increaseTotalSpotsAvailablePerVehicleType(spotId);
+      parkingSpot.setIsOccupiedStatus(OccupiedState.AVAILABLE);
+      parkingSpot.setVehicle(null);
+      this.parkedVehicle.delete(vehicleNumber);
+
+      return this.handleQueuedVehicle(vehicleTypeId, levelId, spotId, parkingSpot)
     }
+    return null
   }
 
-  private removeVehicleOrAllocateQueuedVehicle(
-    parkingSpot: ParkingSpot,
-    location: [number, number],
-    previousVehicleNumber: string
-  ) {
-    const [levelId, spotId] = location;
-    const spotTypeId = parkingSpot.vehicle?.typeId;
-    if (spotTypeId !== undefined) {
-      if (this.waitingQueue[spotTypeId].length === 0) {
-        console.log(`🙅‍♂️ Great, No vehicles in the queue`);
-        this.levels[levelId].increaseTotalSpotsAvailablePerVehicleType(spotId);
-        parkingSpot.setIsOccupiedStatus(OccupiedState.AVAILABLE);
-        parkingSpot.setVehicle(null);
-      } else {
-        const poppedVehicle = this.waitingQueue[spotTypeId].shift();
-        console.log('🚀 ~ ParkingLot.ts:147 ~ ParkingLot ~ poppedVehicle:', poppedVehicle)
+  public handleQueuedVehicle(vehicleTypeId: number, levelId: number, spotId: number, parkingSpot: ParkingSpot) {
+    if (vehicleTypeId !== undefined) {
+      const isExist = this.checkIfVehiclePresentInQueue(vehicleTypeId)
+      if (isExist) {
+        const poppedVehicle = this.waitingQueue[vehicleTypeId].shift();
         if (poppedVehicle) {
-          parkingSpot.setVehicle(null);
-          parkingSpot.vehicle = poppedVehicle;
-          this.provideTicket(poppedVehicle, DEFAULT_ENTRY_GATE);
+          console.log('🚀 ~ There is a vehicle in the queue', poppedVehicle)
+          this.levels[levelId].decreaseTotalSpotsAvailablePerVehicleType(spotId);
+          parkingSpot.setIsOccupiedStatus(OccupiedState.AVAILABLE);
+          parkingSpot.setVehicle(poppedVehicle);
           this.parkedVehicle.set(poppedVehicle.number, [levelId, spotId]);
+          return { status: ResponseType.SLOT_ALLOTED_FOR_QUEUED_VEHICLE, poppedVehicle };
         }
+      } else {
+        console.log(`🙅‍♂️ Great, No vehicles in the queue`);
       }
-      this.parkedVehicle.delete(previousVehicleNumber);
-      // console.log("this.waitingQueue", this.waitingQueue);
-      // console.log("parkingSpot", parkingSpot);
     }
+    return null
+  }
+
+  private checkIfVehiclePresentInQueue(spotTypeId: number) {
+    if (this.waitingQueue[spotTypeId].length === 0) {
+      return false;
+    }
+    return true;
   }
 
   public static getBuilder() {

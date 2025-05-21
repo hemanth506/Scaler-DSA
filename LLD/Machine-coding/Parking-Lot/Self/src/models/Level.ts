@@ -1,4 +1,4 @@
-import { VehicleIndexMap, VehicleType } from "../../helper/enums";
+import { vehicleIndexMap, VehicleType } from "../../helper/enums";
 import { ParkingSpot, ParkingSpotFactory } from "./ParkingSpot";
 
 export class Level {
@@ -27,7 +27,7 @@ export class Level {
   }
 
   public getVehicleTypeByIndex(index: number): VehicleType {
-    return Object.entries(VehicleIndexMap).find(
+    return Object.entries(vehicleIndexMap).find(
       ([_, val]) => val === index
     )?.[0] as VehicleType;
   }

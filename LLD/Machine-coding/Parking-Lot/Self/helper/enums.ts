@@ -28,3 +28,10 @@ export const vehicleIndexMap: Record<VehicleType, number> = {
   [VehicleType.CAR]: 1,
   [VehicleType.TRUCK]: 2,
 };
+
+export enum ResponseType {
+  SLOT_ALLOTED = "SLOT_ALLOTED",
+  SLOT_ALLOTED_FOR_QUEUED_VEHICLE = "SLOT_ALLOTED_FOR_QUEUED_VEHICLE",
+  PUSHED_TO_QUEUE = "PUSHED_TO_QUEUE",
+  VEHICLE_EXITED = "VEHICLE_EXITED"
+}

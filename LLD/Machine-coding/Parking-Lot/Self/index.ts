@@ -86,7 +86,7 @@ const getVehicleNumberToExitTheLot = () => {
     if (command === "enter" || command === "en") {
       const vehicle: Transport | undefined = getVehicleDetailsToEnterTheLot();
       if (vehicle) {
-        const gate = Math.random() % 2 === 0 ? entryGate1 : entryGate2;
+        const gate = (Math.floor(Math.random() * 10)) % 2 === 0 ? entryGate1 : entryGate2;
         parkingLotController.incomingVehicle(vehicle, parkingLot, gate);
         parkingLotController.displayDashboard(parkingLot);
       }
