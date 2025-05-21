@@ -1,9 +1,11 @@
-import { GateType, vehicleIndexMap, VehicleType } from "./helper/enums";
+import { GateType, ResponseType, vehicleIndexMap, VehicleType } from "./helper/enums";
 import { ParkingLotController } from "./src/controllers/ParkingLotController";
 import promptSync from "prompt-sync";
 import { Transport } from "./src/models/Transport";
-import { Gate } from "./src/models/Gate";
+import { DEFAULT_ENTRY_GATE, Gate } from "./src/models/Gate";
 import { Operator } from "./src/models/Operator";
+import { TicketController } from "./src/controllers/TicketController";
+import { Ticket } from "./src/models/Ticket";
 
 const prompt = promptSync();
 
@@ -73,6 +75,8 @@ const getVehicleNumberToExitTheLot = () => {
     noOfLevels,
     totalSpotsAllotedPerVehicleType
   );
+  const ticketController = new TicketController();
+  const ticket = new Ticket();
 
   let runExecution = true;
   console.log(`Available commands:
@@ -86,14 +90,23 @@ const getVehicleNumberToExitTheLot = () => {
     if (command === "enter" || command === "en") {
       const vehicle: Transport | undefined = getVehicleDetailsToEnterTheLot();
       if (vehicle) {
-        const gate = (Math.floor(Math.random() * 10)) % 2 === 0 ? entryGate1 : entryGate2;
-        parkingLotController.incomingVehicle(vehicle, parkingLot, gate);
+        const gate = (Math.floor(Math.random() * 10) % 2) === 0 ? entryGate1 : entryGate2;
+        const responseType = parkingLotController.incomingVehicle(vehicle, parkingLot, gate);
+        if (responseType === ResponseType.SLOT_ALLOTED) {
+          ticketController.issueTicket(ticket, vehicle, gate)
+        }
         parkingLotController.displayDashboard(parkingLot);
       }
     } else if (command === "exit" || command === "ex") {
       const vehicleNumber = getVehicleNumberToExitTheLot();
       if (vehicleNumber) {
-        parkingLotController.exitingVehicle(parkingLot, vehicleNumber);
+        const response = parkingLotController.exitingVehicle(parkingLot, vehicleNumber);
+        if (response) {
+          const { status, poppedVehicle } = response
+          if (status === ResponseType.SLOT_ALLOTED_FOR_QUEUED_VEHICLE && poppedVehicle) {
+            ticketController.issueTicket(ticket, poppedVehicle, DEFAULT_ENTRY_GATE)
+          }
+        }
         parkingLotController.displayDashboard(parkingLot);
       }
     } else if (command === "end" || command === "ed") {
