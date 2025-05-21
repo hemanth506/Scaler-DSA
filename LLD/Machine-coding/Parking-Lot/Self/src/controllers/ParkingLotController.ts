@@ -14,8 +14,8 @@ export class ParkingLotController {
       .build();
   }
 
-  public incomingVehicle(vehicle: Transport, parkingLot: ParkingLot, gate: Gate): ResponseType {
-    return parkingLot.handleIncomingVehicle(vehicle, gate);
+  public incomingVehicle(vehicle: Transport, parkingLot: ParkingLot): ResponseType {
+    return parkingLot.handleIncomingVehicle(vehicle);
   }
 
   public displayDashboard(parkingLot: ParkingLot) {

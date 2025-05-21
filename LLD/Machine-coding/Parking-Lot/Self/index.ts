@@ -91,7 +91,7 @@ const getVehicleNumberToExitTheLot = () => {
       const vehicle: Transport | undefined = getVehicleDetailsToEnterTheLot();
       if (vehicle) {
         const gate = (Math.floor(Math.random() * 10) % 2) === 0 ? entryGate1 : entryGate2;
-        const responseType = parkingLotController.incomingVehicle(vehicle, parkingLot, gate);
+        const responseType = parkingLotController.incomingVehicle(vehicle, parkingLot);
         if (responseType === ResponseType.SLOT_ALLOTED) {
           ticketController.issueTicket(ticket, vehicle, gate)
         }

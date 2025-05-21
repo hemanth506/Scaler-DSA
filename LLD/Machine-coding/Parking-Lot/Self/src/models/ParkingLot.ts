@@ -5,7 +5,6 @@ import {
   vehicleIndexMap,
   VehicleType,
 } from "../../helper/enums";
-import { Gate } from "./Gate";
 import { Level } from "./Level";
 import { ParkingSpot } from "./ParkingSpot";
 import { Transport } from "./Transport";
@@ -41,7 +40,7 @@ export class ParkingLot {
     return tempLevel;
   }
 
-  public handleIncomingVehicle(vehicle: Transport, gate: Gate): ResponseType {
+  public handleIncomingVehicle(vehicle: Transport): ResponseType {
     const availability = this.checkForAvailability(vehicle);
     if (availability) {
       const [i, j]: [number, number] = availability;
@@ -71,16 +70,9 @@ export class ParkingLot {
     for (let i = 0; i < this.levels.length; i++) {
       const currentLevel = this.levels[i];
       if (currentLevel.totalSpotsAvailablePerVehicleType[vehicleTypeId] > 0) {
-        for (
-          let j = 0;
-          j < (currentLevel.allotments as ParkingSpot[]).length;
-          j++
-        ) {
-          const currentAllotment = (currentLevel.allotments as ParkingSpot[])[
-            j
-          ];
-          if (
-            currentAllotment.isOccupied === OccupiedState.AVAILABLE &&
+        for (let j = 0; j < (currentLevel.allotments as ParkingSpot[]).length; j++) {
+          const currentAllotment = (currentLevel.allotments as ParkingSpot[])[j];
+          if (currentAllotment.isOccupied === OccupiedState.AVAILABLE &&
             currentAllotment.spotType === vehicleType
           ) {
             return [i, j];
