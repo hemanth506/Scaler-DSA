@@ -2,7 +2,7 @@ interface VehicleIfc<T> {
   clone(): T;
 }
 
-class Vehicle implements VehicleIfc<Vehicle> {
+export class Vehicle implements VehicleIfc<Vehicle> {
   private engineType?: string;
   private exhaustCount?: number;
   private breakType?: string;
