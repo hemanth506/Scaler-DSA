@@ -5,14 +5,14 @@ import { NodeLocation } from "./NodeLocation";
 export class DriverLocationMap extends GlobalClass {
     driverId: string
     driverNodeLocation: NodeLocation
-    rideAssetId: string
+    rideAssetId: string | null
     status: DriverStatus
     currentTripId: string | null
-    constructor(driverId: string, driverLNodeLocation: NodeLocation, rideAssetId: string) {
+    constructor(driverId: string, driverNodeLocation: NodeLocation) {
         super()
         this.driverId = driverId
-        this.driverNodeLocation = driverLNodeLocation
-        this.rideAssetId = rideAssetId
+        this.driverNodeLocation = driverNodeLocation
+        this.rideAssetId = null
         this.status = DriverStatus.OFFLINE
         this.currentTripId = null
     }

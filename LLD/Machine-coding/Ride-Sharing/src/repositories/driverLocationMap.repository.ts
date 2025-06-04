@@ -1,16 +1,16 @@
 import { DriverLocationMap } from "../models/DriverLocationMap"
 
 export class DriverLocationMapRepository {
-    driverLocationMap: DriverLocationMap[]
+    driverLocationMap: Map<string, DriverLocationMap> // <driver.id, DriverLocationMap>
     constructor() {
-        this.driverLocationMap = []
+        this.driverLocationMap = new Map()
     }
 
     getDriverLocationMap() {
         return this.driverLocationMap
     }
 
-    setDriverLocationMap(driverLocationMap: DriverLocationMap[]) {
+    setDriverLocationMap(driverLocationMap: Map<string, DriverLocationMap>) {
         this.driverLocationMap = driverLocationMap
     }
 }

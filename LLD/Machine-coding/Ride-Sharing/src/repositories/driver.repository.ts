@@ -1,16 +1,16 @@
 import { Driver } from "../models/Driver"
 
 export class DriverRepository {
-    driver: Driver[]
+    drivers: Map<string, Driver> // <driver.id, DriverLocationMap>
     constructor() {
-        this.driver = []
+        this.drivers = new Map()
     }
 
-    getDriver() {
-        return this.driver
+    getDrivers() {
+        return this.drivers
     }
 
-    setDriver(driver: Driver[]) {
-        this.driver = driver
+    setDrivers(drivers: Map<string, Driver>) {
+        this.drivers = drivers
     }
 }
