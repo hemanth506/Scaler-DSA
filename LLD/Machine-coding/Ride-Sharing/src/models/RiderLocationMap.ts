@@ -3,14 +3,14 @@ import { NodeLocation } from "./NodeLocation";
 
 export class RiderLocationMap extends GlobalClass {
     riderId: string
-    pickUp: NodeLocation
-    drop: NodeLocation
+    pickUp: NodeLocation | null
+    drop: NodeLocation | null
     currentTripId: string | null
-    constructor(riderId: string, pickUp: NodeLocation, drop: NodeLocation) {
+    constructor(riderId: string) {
         super()
         this.riderId = riderId
-        this.pickUp = pickUp
-        this.drop = drop
+        this.pickUp = null
+        this.drop = null
         this.currentTripId = null
     }
 
@@ -18,15 +18,15 @@ export class RiderLocationMap extends GlobalClass {
         this.pickUp = pickUp
     }
 
-    getPickUp(): NodeLocation {
+    getPickUp(): NodeLocation | null {
         return this.pickUp
     }
 
     setDrop(drop: NodeLocation) {
-        this.pickUp = drop
+        this.drop = drop
     }
 
-    getDrop(): NodeLocation {
+    getDrop(): NodeLocation | null {
         return this.drop
     }
 

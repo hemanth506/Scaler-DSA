@@ -1,4 +1,5 @@
 import { DriverStatus } from "../../helper/enums";
+import { getRandom } from "../../helper/utils";
 import { Driver } from "../models/Driver";
 import { DriverLocationMap } from "../models/DriverLocationMap";
 import { NodeLocation } from "../models/NodeLocation";
@@ -47,7 +48,7 @@ export class DriverService {
                 throw new Error("Invalid credentials")
             }
 
-            const driverLocationMap = new DriverLocationMap(driver.id, new NodeLocation(Math.random() * 10, Math.random() * 10))
+            const driverLocationMap = new DriverLocationMap(driver.id, new NodeLocation(getRandom(), getRandom()))
 
             const map = this.driverLocationMapRepo.getDriverLocationMap();
             map.set(driver.id, driverLocationMap);

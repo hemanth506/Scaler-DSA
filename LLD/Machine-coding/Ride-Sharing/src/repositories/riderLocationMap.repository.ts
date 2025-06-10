@@ -1,16 +1,16 @@
 import { RiderLocationMap } from "../models/RiderLocationMap"
 
 export class RiderLocationMapRepository {
-    riderLocationMap: RiderLocationMap[]
+    riderLocationMap: Map<string, RiderLocationMap>
     constructor() {
-        this.riderLocationMap = []
+        this.riderLocationMap = new Map()
     }
 
     getRiderLocationMap() {
         return this.riderLocationMap
     }
 
-    setRiderLocationMap(riderLocationMap: RiderLocationMap[]) {
+    setRiderLocationMap(riderLocationMap: Map<string, RiderLocationMap>) {
         this.riderLocationMap = riderLocationMap
     }
 }

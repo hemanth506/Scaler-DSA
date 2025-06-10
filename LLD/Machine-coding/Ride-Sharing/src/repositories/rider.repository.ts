@@ -1,16 +1,16 @@
 import { Rider } from "../models/Rider"
 
 export class RiderRepository {
-    rider: Rider[]
+    riders: Map<string, Rider>
     constructor() {
-        this.rider = []
+        this.riders = new Map()
     }
 
-    getRider() {
-        return this.rider
+    getRiders() {
+        return this.riders
     }
 
-    setRider(rider: Rider[]) {
-        this.rider = rider
+    setRiders(riders: Map<string, Rider>) {
+        this.riders = riders
     }
 }
