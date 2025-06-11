@@ -1,16 +1,16 @@
 import { Trip } from "../models/Trip"
 
 export class TripRepository {
-    trip: Trip[]
+    trip: Map<string, Trip>
     constructor() {
-        this.trip = []
+        this.trip = new Map()
     }
 
     getTrip() {
         return this.trip
     }
 
-    setTrip(trip: Trip[]) {
+    setTrip(trip: Map<string, Trip>) {
         this.trip = trip
     }
 }

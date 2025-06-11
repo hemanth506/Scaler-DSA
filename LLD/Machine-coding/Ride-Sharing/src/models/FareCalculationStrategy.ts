@@ -7,13 +7,25 @@ export interface FareCalculationStrategy {
 
 export class TimeBasedCalculation implements FareCalculationStrategy {
     calculate(time: Time, distance?: number): number {
-        return Math.random() * 800
+        const startTime = new Date(time.getStartTime());
+        const endTime = new Date(time.getEndTime());
+
+        const diffInMs = endTime.getTime() - startTime.getTime();
+        const diffInSeconds = diffInMs / 1000;
+        console.log(`Trip duration is ${diffInSeconds} seconds`)
+        return Number((diffInSeconds * 800).toFixed(2))
     }
 }
 
 export class StandardCalculation implements FareCalculationStrategy {
     calculate(time: Time, distance?: number): number {
-        return Math.random() * 1000;
+        const startTime = new Date(time.getStartTime());
+        const endTime = new Date(time.getEndTime());
+
+        const diffInMs = endTime.getTime() - startTime.getTime();
+        const diffInSeconds = diffInMs / 1000;
+        console.log(`Trip duration is ${diffInSeconds} seconds`)
+        return Number((diffInSeconds * 1000).toFixed(2))
     }
 }
 

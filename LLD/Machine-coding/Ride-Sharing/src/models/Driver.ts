@@ -7,7 +7,7 @@ export class Driver extends GlobalClass {
     licenseNo: string
     email: string
     password: string
-    registeredRideAsset: RideAsset[]
+    registeredRideAsset: Map<string, RideAsset>
     constructor(name: string, dob: Date, licenseNo: string, email: string, password: string) {
         super()
         this.name = name
@@ -15,10 +15,10 @@ export class Driver extends GlobalClass {
         this.licenseNo = licenseNo
         this.email = email
         this.password = password
-        this.registeredRideAsset = []
+        this.registeredRideAsset = new Map()
     }
 
-    setRegisteredRideAsset(registeredRideAsset: RideAsset[]) {
+    setRegisteredRideAsset(registeredRideAsset: Map<string, RideAsset>) {
         this.registeredRideAsset = registeredRideAsset
     }
 

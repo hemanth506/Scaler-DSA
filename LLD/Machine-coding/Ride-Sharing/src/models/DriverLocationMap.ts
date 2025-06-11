@@ -25,6 +25,14 @@ export class DriverLocationMap extends GlobalClass {
         return this.rideAssetId
     }
 
+    setDriverNodeLocation(driverNodeLocation: NodeLocation) {
+        this.driverNodeLocation = driverNodeLocation
+    }
+
+    getDriverNodeLocation() {
+        return this.driverNodeLocation
+    }
+
     setStatus(status: DriverStatus) {
         this.status = status
     }

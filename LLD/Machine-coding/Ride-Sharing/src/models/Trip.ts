@@ -72,4 +72,11 @@ export class Trip extends GlobalClass {
         this.endTime = endTime
     }
 
+    getStartTime() {
+        return this.startTime
+    }
+
+    setStartTime(startTime: Date) {
+        this.startTime = startTime
+    }
 }

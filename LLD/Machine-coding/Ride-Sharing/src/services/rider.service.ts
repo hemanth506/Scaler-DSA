@@ -22,7 +22,7 @@ export class RiderService {
         }
 
         this.riderRepo.getRiders().set(newRider.id, newRider);
-        console.log(`🚀 ~ New rider signed up ${JSON.stringify(this.riderRepo.getRiders())}`);
+        console.log(`🚀 ~ New rider signed up ${newRider.id}`);
     }
 
     login(email: string, password: string) {
@@ -66,7 +66,7 @@ export class RiderService {
             this.riderLocationMapRepo.getRiderLocationMap().set(riderId, newRiderLoc)
         }
 
-        console.log(`Updated pickUp :: ${JSON.stringify(this.riderLocationMapRepo.getRiderLocationMap().get(riderId))}`)
+        console.log(`Updated pickUp location!`)
     }
 
     updateDrop(riderId: string, dropNode: NodeLocation) {
@@ -80,6 +80,10 @@ export class RiderService {
             this.riderLocationMapRepo.getRiderLocationMap().set(riderId, newRiderLoc)
         }
 
-        console.log(`Updated drop :: ${JSON.stringify(this.riderLocationMapRepo.getRiderLocationMap().get(riderId))}`)
+        console.log(`Updated drop location!`)
+    }
+
+    getAllRiderLocationMap() {
+        return this.riderLocationMapRepo.getRiderLocationMap();
     }
 }

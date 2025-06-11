@@ -6,4 +6,12 @@ export class Time {
         this.startTime = startTime
         this.endTime = endTime
     }
+
+    getStartTime() {
+        return this.startTime
+    }
+
+    getEndTime() {
+        return this.endTime
+    }
 }

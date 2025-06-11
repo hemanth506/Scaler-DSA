@@ -2,25 +2,26 @@ import { DriverStatus, Gender, RideAssetType } from "./helper/enums"
 import { getRandom } from "./helper/utils"
 import { DriverController } from "./src/controllers/driver.controller"
 import { RiderController } from "./src/controllers/rider.controller"
-import { Time } from "./src/dtos/Time"
+import { TripController } from "./src/controllers/trip.controller"
 import { Driver } from "./src/models/Driver"
-import { FareCalculationStrategy, TimeBasedCalculation } from "./src/models/FareCalculationStrategy"
+import { TimeBasedCalculation } from "./src/models/FareCalculationStrategy"
 import { NodeLocation } from "./src/models/NodeLocation"
 import { RideAsset } from "./src/models/RideAsset"
 import { Rider } from "./src/models/Rider"
+import promptSync from "prompt-sync";
+import { Callback } from "./src/services/pubSub.service"
 
 export class Init {
-    private fareCalculationStrategy?: FareCalculationStrategy
     private driverController: DriverController
     private riderController: RiderController
+    private tripController: TripController
+    private prompt: any
 
     constructor() {
         this.driverController = new DriverController()
         this.riderController = new RiderController()
-    }
-
-    setFareCalculationStrategy(strategy: FareCalculationStrategy) {
-        this.fareCalculationStrategy = strategy
+        this.tripController = new TripController()
+        this.prompt = promptSync();
     }
 
     runDriverSetUp() {
@@ -60,28 +61,60 @@ export class Init {
         const rider = new Rider("Ruchika", "agsruchika@gmail.com", "pass456", Gender.FEMALE)
         this.riderController.signUp(rider)
         const riderResponse = this.riderController.login("agsruchika@gmail.com", "pass456")
+        let riderId;
         if(riderResponse) {
-            const [sessionId, riderId] = riderResponse
-            if(sessionId) {
+            const [resSessionId, resRiderId] = riderResponse
+            if(resSessionId) {
+                riderId = resRiderId
                 const pickUpLocation: NodeLocation = new NodeLocation(getRandom(), getRandom());
-                this.riderController.updatePickUp(riderId, pickUpLocation)
+                this.riderController.updatePickUp(resRiderId, pickUpLocation)
                 const dropLocation: NodeLocation = new NodeLocation(getRandom(), getRandom());
-                this.riderController.updateDrop(riderId, dropLocation)
+                this.riderController.updateDrop(resRiderId, dropLocation)
             }
         }
+
+        return riderId;
     }
 
     execute() {
-        // this.fareCalculationStrategy?.calculate
+        this.tripController.tripService.setFareCalculationStrategy(new TimeBasedCalculation())
 
         // Driver setup
         this.runDriverSetUp()
 
         // Rider setup
-        this.runRiderSetUp()
+        const riderId = this.runRiderSetUp()
+
+        if(riderId) {
+            // find trip for rider
+            this.tripController.notifyNearByDrivers(riderId, RideAssetType.TWO_WHEELER, this.riderController, this.driverController)
+    
+            // driver acceptance
+            const driverId = this.prompt("Enter the driver id who accepts the ride? \n")
+
+            // start trip
+            const tripId = this.tripController.startTrip(driverId, riderId, this.riderController, this.driverController)
+
+            if(tripId) { // work around
+                this.executeTripInterval(tripId, this.postTripTask.bind(this))   
+            }
+        }
+    }
+
+    postTripTask(tripId: string) {
+        this.tripController.tripService.tripRepo.getTrip().get(tripId)?.setEndTime(new Date())
+
+        this.tripController.calculateFairAmount(tripId)
+    }
+
+    executeTripInterval(tripId: string, callback: Callback) {
+        const minutes = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+        setTimeout(() => {
+            console.log(`🚀 ~ Trip ${tripId} has completed!`)
+            callback(tripId)
+        }, minutes * 1000)
     }
 }
 
 const init = new Init()
-init.setFareCalculationStrategy(new TimeBasedCalculation())
 init.execute()
