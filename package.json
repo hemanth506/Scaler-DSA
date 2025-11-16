@@ -1,0 +1,11 @@
+{
+  "name": "Scaler-DSA",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hemanth506/Scaler-DSA.git",
+  "author": "HemanthRaajG <hemanthraaj31@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "datastructures-js": "^13.0.0"
+  }
+}
