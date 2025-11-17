@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        DBMS Lecture 3 - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{background:#fff;color:#333;display:block;overflow-x:auto;padding:.5em}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{background-color:#eaffea;color:#55a532}.hljs-deletion{background-color:#ffecec;color:#bd2c00}.hljs-link{text-decoration:underline}.markdown-body{word-wrap:break-word;font-size:16px;line-height:1.5}.markdown-body:after,.markdown-body:before{content:"";display:table}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-bottom:16px;margin-top:0}.markdown-body hr{background-color:#e7e7e7;border:0;height:.25em;margin:24px 0;padding:0}.markdown-body blockquote{border-left:.25em solid #ddd;color:#777;font-size:16px;padding:0 1em}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{background-color:#fcfcfc;border:1px solid;border-color:#ccc #ccc #bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb;color:#555;display:inline-block;font-size:11px;line-height:10px;padding:3px 5px;vertical-align:middle}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{font-weight:600;line-height:1.25;margin-bottom:16px;margin-top:24px}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{border-bottom:1px solid #eee;padding-bottom:.3em}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{color:#777;font-size:.85em}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{list-style-type:none;padding:0}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-bottom:0;margin-top:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{font-size:1em;font-style:italic;font-weight:700;margin-top:16px;padding:0}.markdown-body dl dd{margin-bottom:16px;padding:0 16px}.markdown-body table{display:block;overflow:auto;width:100%;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{border:1px solid #ddd;padding:6px 13px}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{background-color:#fff;box-sizing:initial;max-width:100%}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{background-color:initial;max-width:none;vertical-align:text-top}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{border:1px solid #ddd;display:block;float:left;margin:13px 0 0;overflow:hidden;padding:7px;width:auto}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}.markdown-body span.align-center{clear:both;display:block;overflow:hidden}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{clear:both;display:block;overflow:hidden}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{background-color:#0000000a;border-radius:3px;font-size:85%;margin:0;padding:.2em 0}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{content:"\00a0";letter-spacing:-.2em}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{background:#0000;border:0;font-size:100%;margin:0;padding:0;white-space:pre;word-break:normal}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{background-color:#f7f7f7;border-radius:3px;font-size:85%;line-height:1.45;overflow:auto;padding:16px}.markdown-body pre code,.markdown-body pre tt{word-wrap:normal;background-color:initial;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{font-size:12px;line-height:1;overflow:hidden;padding:5px;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{background:#fff;border:0;padding:10px 8px 9px;text-align:right}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{background:#f8f8f8;border-top:0;font-weight:700}.news .alert .markdown-body blockquote{border:0;padding:0 0 0 40px}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{cursor:default!important;float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle}.markdown-body{max-width:758px;overflow:visible!important;padding-bottom:40px;padding-top:40px;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{border-right:3px solid #6ce26c!important;box-sizing:initial;color:#afafaf!important;cursor:default;display:inline-block;min-width:20px;padding:0 8px 0 0;position:relative;text-align:right;z-index:4}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-bottom:none;border-left:none;border-top:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-collapse:inherit!important;border-spacing:0}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{margin-bottom:unset;overflow:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p:last-child{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{background-color:inherit;border-radius:0;overflow:visible;text-align:center;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{height:100%;max-width:100%}.markdown-body pre>code.wrap{word-wrap:break-word;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap}.markdown-body .alert>p:last-child,.markdown-body .alert>ul:last-child{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{background-color:#000;background-position:50%;background-repeat:no-repeat;background-size:contain;cursor:pointer;display:table;overflow:hidden;text-align:center}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{object-fit:contain;width:100%;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{height:100%;left:0;position:absolute;top:0;width:100%}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{color:#fff;height:auto;left:50%;opacity:.3;position:absolute;top:50%;transform:translate(-50%,-50%);transition:opacity .2s;width:auto;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.figma{display:table;padding-bottom:56.25%;position:relative;width:100%}.figma iframe{border:1px solid #eee;bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.markmap-container{height:300px}.markmap-container>svg{height:100%;width:100%}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{color:#777;margin:25px auto -25px;max-width:760px;position:relative;z-index:2}.toc .invisable-node{list-style-type:none}.ui-toc{bottom:20px;position:fixed;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{border-bottom-left-radius:0;border-top-left-radius:0;height:40px;padding:10px 4px}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{color:#fff;opacity:1;transition:opacity .2s}.ui-toc-label:focus{background-color:#ccc;color:#000;opacity:.3}.ui-toc-label:hover{background-color:#ccc;opacity:1;transition:opacity .2s}.ui-toc-dropdown{margin-bottom:20px;margin-top:20px;max-height:70vh;max-width:45vw;overflow:auto;padding-left:10px;padding-right:10px;text-align:inherit;width:25vw}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{letter-spacing:.0029em;padding-right:0}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{color:#767676;display:block;font-size:13px;font-weight:500;padding:4px 20px}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{background-color:initial;border-left:1px solid #000;color:#000;padding-left:19px;text-decoration:none}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{border-left:none;border-right:1px solid #000;padding-right:19px}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{background-color:initial;border-left:2px solid #000;color:#000;font-weight:700;padding-left:18px}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{border-left:none;border-right:2px solid #000;padding-right:18px}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{font-size:12px;font-weight:400;padding-bottom:1px;padding-left:30px;padding-top:1px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{font-size:12px;font-weight:400;padding-bottom:1px;padding-left:40px;padding-top:1px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{font-weight:500;padding-left:28px}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{font-weight:500;padding-left:38px}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{max-height:70vh;max-width:15vw;overflow:auto;position:fixed;top:0}.back-to-top,.expand-toggle,.go-to-bottom{color:#999;display:block;font-size:12px;font-weight:500;margin-left:10px;margin-top:10px;padding:4px 10px}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:50%;display:block;height:20px;margin-bottom:2px;margin-right:5px;margin-top:2px;width:20px}.ui-user-icon.small{display:inline-block;height:18px;margin:0 0 .2em;vertical-align:middle;width:18px}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;padding-left:22px;text-decoration:none}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}.inline-spoiler-section{cursor:pointer}.inline-spoiler-section .spoiler-text{background-color:#333;border-radius:2px}.inline-spoiler-section .spoiler-text>*{opacity:0}.inline-spoiler-section .spoiler-img{filter:blur(10px)}.inline-spoiler-section.raw{background-color:#333;border-radius:2px}.inline-spoiler-section.raw>*{opacity:0}.inline-spoiler-section.unveil{cursor:auto}.inline-spoiler-section.unveil .spoiler-text{background-color:#3333331a}.inline-spoiler-section.unveil .spoiler-text>*{opacity:1}.inline-spoiler-section.unveil .spoiler-img{filter:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{color:#222;position:relative;z-index:1}.markdown-body.slides:before{background-color:currentColor;bottom:0;box-shadow:0 0 0 50vw;content:"";display:block;left:0;position:absolute;right:0;top:0;z-index:-1}.markdown-body.slides section[data-markdown]{background-color:#fff;margin-bottom:1.5em;position:relative;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{left:1em;max-height:100%;overflow:hidden;position:absolute;right:1em;top:50%;transform:translateY(-50%)}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{border:3px solid #777;content:"";height:1.5em;position:absolute;right:1em;top:-1.5em}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}svg{text-shadow:none}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="DBMS-Lecture-3" data-id="DBMS-Lecture-3"><a class="anchor hidden-xs" href="#DBMS-Lecture-3" title="DBMS-Lecture-3"><span class="octicon octicon-link"></span></a><span>DBMS Lecture 3</span></h1><div class="alert alert-info">
+<p><strong><span class="ui-comment-inline-span">Agenda:</span></strong></p>
+<ul>
+<li><a href="##SQL-Data-Types:"><span class="ui-comment-inline-span">SQL Data Types:</span></a></li>
+<li><a href="##Normalization:"><span class="ui-comment-inline-span">Normalization:</span></a>
+<ul>
+<li><a href="###Anomalies-with-Redundancy:"><span class="ui-comment-inline-span">Anomalies with Redundancy:</span></a></li>
+<li><a href="###1NF:"><span class="ui-comment-inline-span">1NF:</span></a></li>
+<li><a href="###2NF:"><span class="ui-comment-inline-span">2NF:</span></a></li>
+<li><a href="###3NF:"><span class="ui-comment-inline-span">3NF:</span></a></li>
+</ul>
+</li>
+<li><a href="##SQL:"><span class="ui-comment-inline-span">SQL:</span></a>
+<ul>
+<li><a href="###CRUD:"><span class="ui-comment-inline-span">CRUD:</span></a></li>
+<li><a href="###Insert:"><span class="ui-comment-inline-span">Insert:</span></a></li>
+<li><a href="###Update:"><span class="ui-comment-inline-span">Update:</span></a></li>
+</ul>
+</li>
+</ul>
+</div><h2 id="SQL-Data-Types" data-id="SQL-Data-Types"><a class="anchor hidden-xs" href="#SQL-Data-Types" title="SQL-Data-Types"><span class="octicon octicon-link"></span></a><span>SQL Data Types:</span></h2><p><strong><span>1. Integers:</span></strong><br>
+<span>* There are different types of Integer data type that exist based on their </span><strong><span>size.</span></strong><br>
+<span>* TINY INT: 1 Byte (-128 to 127), (0 to 255).</span><br>
+<span>* (0 to 255) is called UNSIGNED TINY INT ( more like a char/byte)</span><br>
+<span>* SMALL INT: 2 Bytes (-32k to 32k) (Doesn’t really exist)</span><br>
+<span>* MEDIUM INT: 3 Bytes (-8M to 8M)</span><br>
+<span>* INT: 4 Bytes (-2B to 2B)  (normal INT)</span><br>
+<span>* BIG INT: 8Bytes (-9Z to 9Z) (normal long long INT)</span></p><hr><p><strong><span>2. Floating Points:</span></strong><br>
+<span>The reason for using floating point numbers are:</span></p><ul>
+<li>
+<p><span>Huge range of numbers they can store.</span></p>
+</li>
+<li>
+<p><span>They store scientific notations.</span></p>
+</li>
+<li>
+<p><span>Used in scenerioes where approximation is ok.</span></p>
+</li>
+<li>
+<p><span>Sometimes we write extra logic to handle approximation.</span></p>
+<p><strong><span>1. Decimal(p,s)</span></strong><br>
+<span>* p: Total length/precision (1 to 64)</span><br>
+<span>* There are 65 digits, so maximum power of 10 is 64, Now we can say decimal store more than floats, since float has max of 10</span><sup><span>38</span></sup><br>
+<span>* s: How many values after decimal that we want to store.</span><br>
+<span>* Example: 302.04, p: 5, s:2</span><br>
+<span>* Let’s say internally MYSQL stores 30204 then also MYSQL will be able to know exact decimal point.</span><br>
+<span>* It allows MYSQL to store exact values.</span></p>
+<p><strong><span>2. Float:</span></strong><br>
+<span>* It stores 4 Byte number.</span><br>
+<span>* (-3.4* 10</span><sup><span>38</span></sup><span> to 3.4* 10</span><sup><span>34</span></sup><span>)</span></p>
+<p><strong><span>3. Double:</span></strong><br>
+<span>* It stores 8 Bytes.</span><br>
+<span>* (-1.7* 10</span><sup><span>308</span></sup><span> to 1.7* 10</span><sup><span>308</span></sup><span>)</span></p>
+</li>
+</ul><hr><p><strong><span>3. BOOLEAN: (BOOL or BOOLEAN)</span></strong></p><ul>
+<li><span>Internally a boolean is nothing but a Tiny int.</span></li>
+<li><span>Size of boolean: 1Byte</span></li>
+<li><span>It can store 2 values: True or False/ 1 or 0</span></li>
+</ul><hr><p><strong><span>4. ENUMS:</span></strong><br>
+<span>* A set of constants.</span><br>
+<span>* With enum compiler is going to ensure that we don’t end up inserting something that is no</span><span class="ui-comment-inline-span">t </span><span>a valid </span><span class="ui-comment-inline-span">value.</span><br>
+<span>* Value should be amongst the given set of values.</span><br>
+<span>* For Example: In a cars table, there is a car_type column and we specify them using enum. </span><span class="ui-comment-inline-span">If</span><span> enum is</span><span class="ui-comment-inline-span"> defined</span><span> as enum(“BMW”, “sedan”, “audi”) and if we try to put any value other than this, it will throw error.</span></p><hr><p><strong><span>5. Date and Time:</span></strong><br>
+<strong><span>Date:</span></strong><br>
+<span>It only allow to store a date, 28/3/2022</span><br>
+<strong><span>Time:</span></strong><br>
+<span>It Only allow to store the time part, 6:00pm</span><br>
+<strong><span>DateTime:</span></strong><br>
+<span>It allows to store both date and time, 28/3/2022 6:00pm</span></p><hr><p><strong><span>6. TIMESTAMP:</span></strong></p><ul>
+<li><span>In MYSQL, Timestamp is of 4 bytes.</span></li>
+<li><span>Because the number of seconds since 1970&gt; range of timestamp, all of the databases that are using timestamp as the column to store a particular time are going to </span><strong><span class="ui-comment-inline-span">overflow</span><span> after 2038.</span></strong></li>
+<li><a href="https://" target="_blank" rel="noopener"><span>https://en.wikipedia.org/wiki/Year_2038_problem</span></a><span>(Read more from this).</span></li>
+</ul><hr><p><strong><span>7. BLOBS:</span></strong></p><ul>
+<li><span>Binary Large Objects.</span></li>
+<li><span>It Stors files in database.</span><br>
+<span>TINY BLOB: 255B</span><br>
+<span>NORMAL BLOB: 65KB</span><br>
+<span>MEDIUM BLOB: 16MB</span><br>
+<span>LONG BLOB: 4GB</span></li>
+<li><span>Often a file store is going to be a better choice.</span></li>
+<li><span>Store metadata of file(fileURL, fileId) in database and store file in a file store(AWS S3)</span></li>
+</ul><hr><h2 id="Normalization" data-id="Normalization"><a class="anchor hidden-xs" href="#Normalization" title="Normalization"><span class="octicon octicon-link"></span></a><span>Normalization:</span></h2><ul>
+<li><span>Process to organize the data in a a database.</span></li>
+<li><span>A techinque to reduce </span><strong><span>redundancy</span></strong><span> of data in a database.</span></li>
+<li><span>Helps to create better database schema(Schema with reduced redundancy).</span></li>
+</ul><h3 id="Anomalies-with-Redundancy" data-id="Anomalies-with-Redundancy"><a class="anchor hidden-xs" href="#Anomalies-with-Redundancy" title="Anomalies-with-Redundancy"><span class="octicon octicon-link"></span></a><span>Anomalies with Redundancy:</span></h3><p><em><span>Let’s understand with the help of scaler example:</span></em><br>
+<span>We have a table called students.</span><br>
+<img src="https://i.imgur.com/RzvpJm0.png" alt="" loading="lazy"></p><p><span>Here Instead of creating seperate tables for students and batches, We merged both tables in one, students table have information about batches as well as students.</span></p><p><span>Here everytime batch_name and batch_instructor is repeated for all the studens.</span><br>
+<img src="https://i.imgur.com/bqpRsOz.png" alt="" loading="lazy"><br>
+<span>The problem is redundancy, the information about batch_name and batch_inst is redundant.</span></p><p><strong><span>Different problems due to Redundancy:</span></strong></p><p><strong><span>1. Insertion Anomaly:</span></strong><br>
+<span>We can’t create a batch till no student is there.</span><br>
+<span>We have to put NULL in all the columns of students information because of that id becomes NULL and Primary key can’t be NULL.</span></p><p><img src="https://i.imgur.com/HZcySmo.png" alt="" loading="lazy"></p><p><strong><span>2. Deletion Anomaly:</span></strong><br>
+<span>Let’s consider a use case where,</span><br>
+<span>Scaler decided that all the students of batch A and C should go to batch D with instructor B and id 3.</span><br>
+<span>We have to make the changes in batch_id, batch_name and batch_instr column of all the students.</span><br>
+<img src="https://i.imgur.com/LaUd7k6.png" alt="" loading="lazy"><br>
+<span>Now, the problem is there is not a single information left about A, C anymore.</span><br>
+<span>Moving t</span><span class="ui-comment-inline-span">he students, deleted the batches, which is u</span><span>nintended side-effect.</span></p><p><strong><span>3. Update Anomaly:</span></strong><br>
+<span>Now let’s say Scaler wants to change the instructor of batch A to G.</span><br>
+<img src="https://i.imgur.com/5ECI2Tx.png" alt="" loading="lazy"></p><p><span class="ui-comment-inline-span">Redundancy increases the probability of data inconsistency.</span></p><hr><p><strong><span>Normal Forms:</span></strong><br>
+<img src="https://i.imgur.com/JmxkhcH.png" alt="" loading="lazy"></p><h3 id="1NF" data-id="1NF"><a class="anchor hidden-xs" href="#1NF" title="1NF"><span class="octicon octicon-link"></span></a><span>1NF:</span></h3><ul>
+<li><span>Every column should have atomic value.</span></li>
+<li><span>No multi values attributes.</span></li>
+</ul><p><span>Let’s consider a students table:</span><br>
+<img src="https://i.imgur.com/iNL1pVJ.png" alt="" loading="lazy"></p><p><strong><span>Solution1:</span></strong><br>
+<span>Create multiple columns each for storing seperate phone_numbers.</span></p><p><span>But We are having too many </span><strong><span>NULL, sparse table.</span></strong><br>
+<img src="https://i.imgur.com/ypUOf6l.png" alt="" loading="lazy"></p><p><strong><span>Solution2:</span></strong><br>
+<span>Create seperate table for storing phone_numbers.</span></p><p><span>If we have the id column, the primary key of phone-number table is Id.</span><br>
+<span>If we don’t have this, then st_id and ph_no combined will be the primary key.</span><br>
+<img src="https://i.imgur.com/pvuQRTW.png" alt="" loading="lazy"></p><p><strong><span>Benefit of this:</span></strong><span> It is sorted on st_id, that means if we want all the ph_no of a particular student, it’s going to be faster.</span></p><hr><h3 id="2NF" data-id="2NF"><a class="anchor hidden-xs" href="#2NF" title="2NF"><span class="octicon octicon-link"></span></a><span>2NF:</span></h3><p><span>Let’s take a scenerio.</span><br>
+<span>Scaler is storing a database table called mentor_sessions.</span><br>
+<img src="https://i.imgur.com/YLzxinp.png" alt="" loading="lazy"></p><p><span>Primary key: First 3 columns because 1 student with 1 mentor can have mutiple sessions.</span></p><p><span>Now, we can say the attribute mentor_name can just be found via mentor_id. This mentor_name is actually not depending on all the 3 columns but just mentor_id, a part of primary key.</span></p><div class="alert alert-info">
+<p><span>According to 2NF, No non-prime attribute(attribute not part of primary key) should depend on subset of primary key.</span><br>
+<span>All the non prime attributes should depend on complete primary key.</span></p>
+</div><p><span>Here, mentor_name is dependent upon a subset of primary key. This is not allowed.</span></p><hr><h3 id="3NF" data-id="3NF"><a class="anchor hidden-xs" href="#3NF" title="3NF"><span class="octicon octicon-link"></span></a><span>3NF:</span></h3><div class="alert alert-info">
+<p><span>According to 3NF, No non prime attribute should indirectly depend on primary key.</span></p>
+</div><p><span>Let’s say we have students table,</span><br>
+<img src="https://hackmd.io/_uploads/SJzVm938s.png" alt="" loading="lazy"></p><p><span>Primary key: id.</span><br>
+<span>batch_id-&gt; batch_name</span><br>
+<span>id-&gt;batch_id</span></p><p><span>Here, </span><span class="ui-comment-inline-span">batch_name depends on batch_id which depends on id i.e. primary key.</span><br>
+<span>So the </span><span class="ui-comment-inline-span">table</span><span> is not in 3NF.</span></p><hr><h2 id="SQL" data-id="SQL"><a class="anchor hidden-xs" href="#SQL" title="SQL"><span class="octicon octicon-link"></span></a><span>SQL:</span></h2><h3 id="CRUD" data-id="CRUD"><a class="anchor hidden-xs" href="#CRUD" title="CRUD"><span class="octicon octicon-link"></span></a><span>CRUD:</span></h3><p><span>CRUD is an acronym for 4 terms:</span><br>
+<span>C: Create</span><br>
+<span>R: Read</span><br>
+<span>U: Update</span><br>
+<span>D: Delete</span></p><p><a href="https://" target="_blank" rel="noopener"><span>https://drive.google.com/file/d/1ftbQW_Tud46ihfnh2BTlBnw6NQuOHpKp/view?usp=sharing</span></a><span> Use this SQL script as a pre text. Download this SQL script and then Go to file in MYSQL Workbench, Open SQL script, Download and then click on Run button. It’s a sample data.</span></p><hr><h3 id="Insert" data-id="Insert"><a class="anchor hidden-xs" href="#Insert" title="Insert"><span class="octicon octicon-link"></span></a><span>Insert:</span></h3><p><strong><span>SQL is case insensitive.</span><br>
+<span>INSERT=insert=INseRt</span></strong></p><pre><code>insert into [table_name] values 
+(           )
+</code></pre><p><span>Let’s consider an example from our shared sample databases in the mysql workbench:</span><br>
+<img src="https://hackmd.io/_uploads/SyRMNqh8o.png" alt="" loading="lazy"></p><p><span>We are required to insert a new customer.</span></p><pre><code>insert into sql_store.customers 
+values (11, "naman", "bhalla", '1998-01-02, 123', 'ABC', 'XYZ', 'HR',1134),
+(12, "naman", "bhalla", '1998-01-02, 123', 'ABC', 'XYZ', 'HR',1134);
+</code></pre><p><span>Run this (command+enter) or run query button.</span><br>
+<span>There are 2 new customers inserted in database.</span></p><p><span>In table defination,</span><br>
+<span>Id is auto_increment and primary key, auto_increment is we can generate the primary key ourself whatever is the past key that we had, just add 1 to it and that is going to be the new primary key.</span><br>
+<span>Therefore database will automatically generate the value.</span></p><pre><code>insert into sql_store.customers 
+values (default, naman, bhalla, '1998-01-02, 123', 'ABC', 'XYZ', 'HR',1134),
+(default, "naman", "bhalla", '1998-01-02, 123', 'ABC', 'XYZ', 'HR',1134);
+</code></pre><p><span>Another variant:</span><br>
+<span>It is making the query more </span><span class="ui-comment-inline-span">readable</span><span>.</span></p><pre><code>insert into sql_store.customers (customer_id, first_name,last_name,birth_date,phone,address,city,state,points)
+values(default, "naman", "bhalla", '1998-01-02, 123', 'ABC', 'XYZ', 'HR',1134),
+(default, naman, bhalla, '1998-01-02, 123', 'ABC', 'XYZ', 'HR',1134);
+</code></pre><p><span>Now, there are some columns that are nullable also, (birth_</span><span class="ui-comment-inline-span">date, phone etc)</span><span>, we can remove that.</span></p><pre><code>insert into sql_store.customers (first_name,last_name,address,city,state,points)
+values("naman", "bhalla", 'ABC', 'XYZ', 'HR',1134),
+(naman, bhalla, 'ABC', 'XYZ', 'HR',1134);
+</code></pre><p><span>It w</span><span class="ui-comment-inline-span">ill</span><span> put the values, only difference is the values which we h</span><span class="ui-comment-inline-span">aven’t</span><span> provide have NULL.</span></p><p><span>Another benefit of giving the column names is:</span><br>
+<span>These columns can be in any order.</span><br>
+<span>This means that if we specify the column name ourself, the column names need not to be in the same order as in table.</span></p><pre><code>insert into sql_store.customers (first_name,last_name,address,city,state,birth_date,points)
+values("naman", "bhalla", 'ABC', 'XYZ', 'HR','1998-01-02',1134),
+(naman, bhalla, 'ABC', 'XYZ', 'HR','1998-01-02',1134);
+</code></pre><hr><h3 id="Update" data-id="Update"><a class="anchor hidden-xs" href="#Update" title="Update"><span class="octicon octicon-link"></span></a><span>Update:</span></h3><p><span>We want to change the value of something that is stored.</span></p><p><span>Update [table_name] set (give values) condition(optional)</span></p><p><span>Example:</span><br>
+<code>update students set name='naman'</code><br>
+<span>No condition: Therefore names of all the students become naman.</span></p><p><span>Now, We want to update the name of customer_id 21 to manish yadav.</span></p><p><code>Update  customers  set first_name='manish', last_name='yadav'  where customer_id=21;</code><br>
+<span>This updates the name of the customer with id=21.</span></p><hr><hr></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li><a href="#DBMS-Lecture-3" title="DBMS Lecture 3">DBMS Lecture 3</a><ul class="nav">
+<li><a href="#SQL-Data-Types" title="SQL Data Types:">SQL Data Types:</a></li>
+<li><a href="#Normalization" title="Normalization:">Normalization:</a><ul class="nav">
+<li><a href="#Anomalies-with-Redundancy" title="Anomalies with Redundancy:">Anomalies with Redundancy:</a></li>
+<li><a href="#1NF" title="1NF:">1NF:</a></li>
+<li><a href="#2NF" title="2NF:">2NF:</a></li>
+<li><a href="#3NF" title="3NF:">3NF:</a></li>
+</ul>
+</li>
+<li><a href="#SQL" title="SQL:">SQL:</a><ul class="nav">
+<li><a href="#CRUD" title="CRUD:">CRUD:</a></li>
+<li><a href="#Insert" title="Insert:">Insert:</a></li>
+<li><a href="#Update" title="Update:">Update:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li><a href="#DBMS-Lecture-3" title="DBMS Lecture 3">DBMS Lecture 3</a><ul class="nav">
+<li><a href="#SQL-Data-Types" title="SQL Data Types:">SQL Data Types:</a></li>
+<li><a href="#Normalization" title="Normalization:">Normalization:</a><ul class="nav">
+<li><a href="#Anomalies-with-Redundancy" title="Anomalies with Redundancy:">Anomalies with Redundancy:</a></li>
+<li><a href="#1NF" title="1NF:">1NF:</a></li>
+<li><a href="#2NF" title="2NF:">2NF:</a></li>
+<li><a href="#3NF" title="3NF:">3NF:</a></li>
+</ul>
+</li>
+<li><a href="#SQL" title="SQL:">SQL:</a><ul class="nav">
+<li><a href="#CRUD" title="CRUD:">CRUD:</a></li>
+<li><a href="#Insert" title="Insert:">Insert:</a></li>
+<li><a href="#Update" title="Update:">Update:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
