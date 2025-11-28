@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="startBtn">Start Promise</button>
+    <button id="cancelBtn">Cancel Promise</button>
+
+    <script>
+        const startBtn = document.getElementById('startBtn')
+        const cancelBtn = document.getElementById('cancelBtn')
+
+        let isCancelled = false
+
+        function startFn() {
+            function cancellablePromise() {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        if (isCancelled) {
+                            reject('Event cancelled')
+                        } else {
+                            resolve('Event triggered')
+                        }
+                    }, 10 * 1000)
+                })
+            }
+            console.log('Function started');
+            cancellablePromise().then((res) => console.log(res)).catch((err) => console.log(err))
+        }
+
+        function cancelFn() {
+            isCancelled = true
+        }
+
+        startBtn.addEventListener('click', startFn)
+        cancelBtn.addEventListener('click', cancelFn)
+
+    </script>
+</body>
+
+</html>
