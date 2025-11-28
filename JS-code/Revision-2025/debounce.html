@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">Click me</button>
+    <script>
+        const btn = document.getElementById('btn')
+        function debounceFn() {
+            let timer = null
+            return function (s) {
+                if (timer) {
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(() => console.log(`Click event is executed after ${s} seconds!`, new Date().toISOString()), s * 1000)
+            }
+        }
+        const closureFn = debounceFn()
+        btn.addEventListener('click', () => {
+            console.log('Click is triggered', new Date().toISOString());
+            closureFn(4)
+        })
+    </script>
+</body>
+
+</html>

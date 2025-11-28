@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Click me</button>
+    <script>
+        const btn = document.getElementById('btn')
+        const closureFn = function () {
+            let canExecute = true;
+
+            return function () {
+                if(!canExecute) {
+                    console.log('Not able to execute');
+                    return;
+                }
+
+                console.log('Can execute the code now');
+                canExecute = false
+                setTimeout(() => {
+                    canExecute = true
+                }, 5 * 1000)
+            }
+        }
+        const throttledClick = closureFn();
+        btn.addEventListener('click', throttledClick)
+    </script>
+</body>
+</html>
