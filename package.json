@@ -2,6 +2,7 @@
   "name": "Scaler-DSA",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": "git@github.com:hemanth506/Scaler-DSA.git",
   "author": "HemanthRaajG <hemanthraaj31@gmail.com>",
   "license": "MIT",
