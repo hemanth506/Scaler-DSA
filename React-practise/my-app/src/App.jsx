@@ -5,6 +5,10 @@ import { LazyLoading } from "./components/LazyLoading";
 import { StarRating } from "./components/StarRating";
 import { CountDownTimer } from "./components/CountdownTimer";
 import  {CommentBox}  from "./components/CommentThread";
+import { StepperForm } from "./components/StepperForm";
+import { EditableText } from "./components/EditableText";
+import { ProtectedRouteHome } from "./components/ProtectedRoute";
+import { ProgressBar } from "./components/ProgressBar";
 
 function App() {
   return (
@@ -14,7 +18,11 @@ function App() {
       {/* <LazyLoading /> */}
       {/* <StarRating /> */}
       {/* <CountDownTimer /> */}
-      <CommentBox />
+      {/* <CommentBox /> */}
+      {/* <StepperForm /> */}
+      {/* <EditableText /> */}
+      {/* <ProtectedRouteHome /> */}
+      <ProgressBar />
     </>
   );
 }
