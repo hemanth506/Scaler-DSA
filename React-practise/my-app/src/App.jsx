@@ -9,6 +9,8 @@ import { StepperForm } from "./components/StepperForm";
 import { EditableText } from "./components/EditableText";
 import { ProtectedRouteHome } from "./components/ProtectedRoute";
 import { ProgressBar } from "./components/ProgressBar";
+import { Home } from "./hooks/Home";
+import { OtpValidator } from "./components/otpValidator";
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
       {/* <StepperForm /> */}
       {/* <EditableText /> */}
       {/* <ProtectedRouteHome /> */}
-      <ProgressBar />
+      {/* <ProgressBar /> */}
+      {/* <Home /> */}
+      <OtpValidator />
     </>
   );
 }
