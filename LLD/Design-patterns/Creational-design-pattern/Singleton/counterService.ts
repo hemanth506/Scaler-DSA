@@ -1,6 +1,7 @@
 class CounterService {
   private count: number = 0;
   private static instance: CounterService | null = null;
+  
   private constructor() {}
 
   public static initiateCounter(): CounterService {

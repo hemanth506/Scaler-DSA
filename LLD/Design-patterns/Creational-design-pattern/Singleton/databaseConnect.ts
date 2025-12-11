@@ -32,7 +32,7 @@ class DatabaseConnection {
     this.host = host;
     this.password = password;
     this.port = port
-    console.log("Inside constructor");
+    console.log("Inside constructor", this.username);
     let pg = new Postgres(username, host, password, port)
   }
 
@@ -45,6 +45,12 @@ class DatabaseConnection {
     return this.instance;
   }
 }
+
+/**
+ * Since it has a private constructor, 
+ * we can initialtize the object within the class declaration itself.
+ */
+// let newdbc = new DatabaseConnection("Hemanth", "https://google.com", "password", 3000)
 
 let dbc = DatabaseConnection.getDbConnection("Hemanth", "https://google.com", "password", 3000);
 console.log("🚀 ~ databaseConnect.ts ~ dbc:", dbc);

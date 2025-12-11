@@ -5,10 +5,10 @@ class InMemoryCache {
     private constructor () { }
 
     public static initialize(): InMemoryCache {
-        if (InMemoryCache.instance === null) {
-            InMemoryCache.instance = new InMemoryCache();
+        if (this.instance === null) {
+            this.instance = new InMemoryCache();
         }
-        return InMemoryCache.instance;
+        return this.instance;
     }
 
     public setValue(key: string, value: string) {

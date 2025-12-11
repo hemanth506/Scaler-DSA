@@ -42,15 +42,15 @@ class Singleton {
 
   static getInstance() {
     // 1st check
-    if (Singleton.instance === null) {
+    if (this.instance === null) {
       // Locking: simulate mutex using Atomics
       while (Atomics.compareExchange(shared, 0, 0, 1) !== 0) {
         Atomics.wait(shared, 0, 1); // wait if locked
       }
 
       // 2nd check inside lock
-      if (Singleton.instance === null) {
-        Singleton.instance = new Singleton();
+      if (this.instance === null) {
+        this.instance = new Singleton();
         console.log(`✅ Singleton created by Worker ${workerData.workerName}`);
       }
 
@@ -59,7 +59,7 @@ class Singleton {
       Atomics.notify(shared, 0);
     }
 
-    return Singleton.instance;
+    return this.instance;
   }
 }
 
