@@ -53,32 +53,32 @@ class ProductBuilder {
   private brand?: string;
   private discount?: number;
 
-  public setProduct(product: ProductType): ProductBuilder {
+  public setProduct(product: ProductType): this {
     this.product = product;
     return this;
   }
 
-  public setSize(size: sizeType): ProductBuilder {
+  public setSize(size: sizeType): this {
     this.size = size;
     return this;
   }
 
-  public setColor(color: ColorType): ProductBuilder {
+  public setColor(color: ColorType): this {
     this.color = color;
     return this;
   }
 
-  public setPrice(price: number): ProductBuilder {
+  public setPrice(price: number): this {
     this.price = price;
     return this;
   }
 
-  public setBrand(brand: string): ProductBuilder {
+  public setBrand(brand: string): this {
     this.brand = brand;
     return this;
   }
 
-  public setDiscount(discount: number): ProductBuilder {
+  public setDiscount(discount: number): this {
     this.discount = discount;
     return this;
   }
