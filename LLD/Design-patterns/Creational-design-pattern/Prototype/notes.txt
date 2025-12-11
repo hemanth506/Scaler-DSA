@@ -1,1 +1,5 @@
-*) Telescoping constructor
+/**
+    creates new objects by cloning an existing object (prototype) instead of creating from scratch.
+    Instead of calling new Class(), you clone an existing one.
+    Each prototype is stored in the registry and fetched and cloned when ever it is needed.
+ */
