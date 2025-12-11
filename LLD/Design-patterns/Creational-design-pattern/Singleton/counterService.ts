@@ -4,10 +4,10 @@ class CounterService {
   private constructor() {}
 
   public static initiateCounter(): CounterService {
-    if (CounterService.instance === null) {
-      CounterService.instance = new CounterService();
+    if (this.instance === null) {
+      this.instance = new CounterService();
     }
-    return CounterService.instance;
+    return this.instance;
   }
 
   public increment(): void {
