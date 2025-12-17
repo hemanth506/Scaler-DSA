@@ -2,7 +2,12 @@ import https from "https";
 import fs from "fs";
 import { exec } from "child_process";
 
-class RealImage {
+interface ImageProcessor {
+  loadImage: () => Promise<void>
+  render: () => void
+}
+
+class RealImageProcessor implements ImageProcessor {
   url?: string;
   imageElt?: string;
 
@@ -43,8 +48,8 @@ class RealImage {
   }
 }
 
-class ImageProxy {
-  private realImage?: RealImage;
+class ImageProcessorProxy implements ImageProcessor {
+  private realImage?: RealImageProcessor;
   private url: string;
 
   constructor(imgUrl: string) {
@@ -53,7 +58,7 @@ class ImageProxy {
 
   public async loadImage() {
     if (!this.realImage) {
-      this.realImage = new RealImage(this.url);
+      this.realImage = new RealImageProcessor(this.url);
       await this.realImage.loadImage();
     }
   }
@@ -67,7 +72,7 @@ class ImageProxy {
   }
 }
 
-const proxy = new ImageProxy("https://loremflickr.com/320/240");
+const proxy = new ImageProcessorProxy("https://loremflickr.com/320/240");
 proxy.loadImage().then(() => {
   proxy.render();
 });

@@ -41,15 +41,20 @@ class StreamingDevice implements SwitchedElectricalDevise {
 }
 
 
-class Movie {
-  movieName?: string
-  sd = new StreamingDevice()
-  lt = new Lights()
-  ss = new SoundSystem()
-  ws = new WhiteScreen()
-  pj = new Projector()
-  constructor(movieName: string) {
+class MovieFacade {
+  movieName: string
+  private readonly sd: StreamingDevice
+  private readonly lt: Lights
+  private readonly ss: SoundSystem
+  private readonly ws: WhiteScreen
+  private readonly pj: Projector
+  constructor(movieName: string, streamingDeviceObj: StreamingDevice, lightsObj: Lights, soundSystemObj: SoundSystem, whiteScreenObj: WhiteScreen, projectorObj: Projector) {
     this.movieName = movieName
+    this.sd = streamingDeviceObj
+    this.lt = lightsObj
+    this.ss = soundSystemObj
+    this.ws = whiteScreenObj
+    this.pj = projectorObj
     this.ss.setVolume(75)
   }
 
@@ -75,5 +80,5 @@ class Movie {
 }
 
 
-const movie = new Movie("Conjuring")
+const movie = new MovieFacade("Conjuring", new StreamingDevice(), new Lights(), new SoundSystem(), new WhiteScreen(), new Projector())
 movie.endMovie()

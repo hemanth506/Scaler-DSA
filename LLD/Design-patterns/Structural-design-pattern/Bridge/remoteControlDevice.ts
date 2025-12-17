@@ -41,17 +41,17 @@ class SmartLight extends DeviceClass {
 }
 
 class RemoteControl {
-  device?: Device;
+  protected device: Device;
   constructor(device: Device) {
     this.device = device;
   }
   public turnOn = () => {
-    console.log(`Turning on ${this.device?.deviceType}`);
-    this.device?.turnOn();
+    console.log(`Turning on ${this.device.deviceType}`);
+    this.device.turnOn();
   };
   public turnOff = () => {
-    console.log(`Turning off ${this.device?.deviceType}`);
-    this.device?.turnOff();
+    console.log(`Turning off ${this.device.deviceType}`);
+    this.device.turnOff();
   };
 }
 
@@ -62,21 +62,25 @@ class AdvanceRemoteControl extends RemoteControl {
   }
   public setVolumeOrBrightness = (level: number) => {
     this.volumeOrBrightness = level;
-    console.log(
-      `Setting ${this.device?.deviceType} volume/brightness to ${level}`
-    );
+    console.log(`Setting ${this.device.deviceType} volume/brightness to ${level}`);
   };
   public getVolumeOrBrightness = () => {
     console.log("The brightness or volume level is ", this.volumeOrBrightness);
   };
 }
 
-const sl: DeviceClass = new SmartLight();
+const sl: SmartLight = new SmartLight();
+console.log('sl.getCOlor()', sl.getCOlor());
 const slRemote = new AdvanceRemoteControl(sl);
 slRemote.turnOn();
 slRemote.setVolumeOrBrightness(75);
 
-const tv: DeviceClass = new TV();
+console.log('----------------------------');
+
+const tv: TV = new TV();
+tv.setResolution("500")
+console.log('tv.getResolution()', tv.getResolution());
 const tvRemote = new AdvanceRemoteControl(tv);
 tvRemote.turnOff();
 tvRemote.setVolumeOrBrightness(35);
+tvRemote.getVolumeOrBrightness()
