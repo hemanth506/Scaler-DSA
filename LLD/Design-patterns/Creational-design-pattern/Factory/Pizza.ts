@@ -43,7 +43,7 @@ class PizzaStore implements IPizzaStore {
 
 // Practical Factory
 class PizzaIngredientFactory {
-  public static pickCityIngredient(city: string) {
+  public static pickCityIngredient(city: string): NewYorkPizzaIngredientFactory | ChicagoPizzaIngredientFactory {
     switch (city.toLowerCase()) {
       case "new-york":
         return new NewYorkPizzaIngredientFactory();
