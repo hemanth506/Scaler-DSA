@@ -1,3 +1,6 @@
-Shared state: can be created once and use as reference
+Shared state: 
+    Can be created once and use as reference (Intrinsic)
 Unique state: 
+    These attributes/functions will be unique for all (Extrinsic), and this extrinsic class will have the reference of the intrinsic class as an attribute 
+
 Massive memory optimization!

@@ -3,22 +3,45 @@ interface Ingredient {
   getDescription(): string;
 }
 
-class SimpleCoffee implements Ingredient {
-  getCost(): number {
-    return 5;
-  }
-  getDescription(): string {
-    return "Simple Coffee";
-  }
-}
-
-abstract class CoffeeDecorator implements Ingredient {
+abstract class IceCreamDecorator implements Ingredient {
   abstract getCost(): number;
   abstract getDescription(): string;
 }
 
-class MilkDecorator extends CoffeeDecorator {
-  ing: Ingredient;
+// can act as add-on or base ingredient
+class VanillaCone extends IceCreamDecorator {
+  private ing?: Ingredient;
+  constructor(ing?: Ingredient) {
+    super();
+    this.ing = ing;
+  }
+  getCost(): number {
+    return (Number(this.ing?.getCost()) || 0) + 5;
+  }
+  getDescription(): string {
+    const inner = this.ing?.getDescription() ?? "";
+    return (inner.length ? inner + ", " : "") + "Vanilla Cone";
+  }
+}
+
+// can act as add-on or base ingredient
+class ChocolateCone extends IceCreamDecorator {
+  private ing?: Ingredient;
+  constructor(ing?: Ingredient) {
+    super();
+    this.ing = ing;
+  }
+  getCost(): number {
+    return (Number(this.ing?.getCost()) || 0) + 5;
+  }
+  getDescription(): string {
+    const inner = this.ing?.getDescription() ?? "";
+    return (inner.length ? inner + ", " : "") + "Chocolate Cone";
+  }
+}
+
+class WhiteChocolate extends IceCreamDecorator {
+  private ing: Ingredient;
   constructor(ing: Ingredient) {
     super();
     this.ing = ing;
@@ -27,12 +50,12 @@ class MilkDecorator extends CoffeeDecorator {
     return Number(this.ing?.getCost()) + 3;
   }
   getDescription(): string {
-    return this.ing?.getDescription() + ", Milk";
+    return this.ing.getDescription() + ", White Chocolate";
   }
 }
 
-class SugarDecorator extends CoffeeDecorator {
-  ing: Ingredient;
+class Waffles extends IceCreamDecorator {
+  private ing: Ingredient;
   constructor(ing: Ingredient) {
     super();
     this.ing = ing;
@@ -41,45 +64,45 @@ class SugarDecorator extends CoffeeDecorator {
     return Number(this.ing?.getCost()) + 1;
   }
   getDescription(): string {
-    return this.ing?.getDescription() + ", Sugar";
+    return this.ing.getDescription() + ", Waffles";
   }
 }
 
-class ChocolateDecorator extends CoffeeDecorator {
-  ing: Ingredient;
+class ChocoChips extends IceCreamDecorator {
+  private ing: Ingredient;
   constructor(ing: Ingredient) {
     super();
     this.ing = ing;
   }
   getCost(): number {
-    return Number(this.ing?.getCost()) + 4;
+    return Number(this.ing.getCost()) + 4;
   }
   getDescription(): string {
-    return this.ing?.getDescription() + ", Chocolate";
+    return this.ing.getDescription() + ", Choco chips";
   }
 }
 
-class WhippedCreamDecorator extends CoffeeDecorator {
-  ing: Ingredient;
+class ButterScotchScoop extends IceCreamDecorator {
+  private ing: Ingredient;
   constructor(ing: Ingredient) {
     super();
     this.ing = ing;
   }
   getCost(): number {
-    return Number(this.ing?.getCost()) + 2.5;
+    return Number(this.ing.getCost()) + 2.5;
   }
   getDescription(): string {
-    return this.ing?.getDescription() + ", Whipped Cream";
+    return this.ing.getDescription() + ", ButterScotch Scoop";
   }
 }
 
-const coffee: Ingredient = new WhippedCreamDecorator(
-  new ChocolateDecorator(
-    new SugarDecorator(
-      new MilkDecorator(new ChocolateDecorator(new SimpleCoffee()))
+const icecream: Ingredient = new ButterScotchScoop(
+  new WhiteChocolate(
+    new ChocoChips(
+      new Waffles(new WhiteChocolate(new ButterScotchScoop(new ChocolateCone())))
     )
   )
 );
 
-console.log(coffee.getCost());
-console.log(coffee.getDescription());
+console.log(icecream.getCost());
+console.log(icecream.getDescription());
