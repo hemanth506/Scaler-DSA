@@ -1,14 +1,11 @@
 import { ParkingLot } from "./models/ParkingLot.ts";
 import { Vehicle } from "./models/Vehicle.ts";
-import { VehicleType } from "./utils/vehicleType.ts";
+import { VehicleType, type VehicleTypeFloorParams } from "./utils/vehicleType.ts";
 
-const params: {
-  vehicleType: VehicleType;
-  count: number;
-}[] = [
-  { vehicleType: VehicleType.BIKE, count: 5 },
-  { vehicleType: VehicleType.CAR, count: 3 },
-  { vehicleType: VehicleType.TRUCK, count: 8 },
+const params: VehicleTypeFloorParams[] = [
+  { vehicleType: VehicleType.BIKE, floorAndCount: [{floor: 1, count: 3}, {floor: 2, count: 6}] },
+  { vehicleType: VehicleType.CAR, floorAndCount: [{floor: 1, count: 4}, {floor: 2, count: 3}] },
+  { vehicleType: VehicleType.TRUCK, floorAndCount: [{floor: 1, count: 5}, {floor: 2, count: 3}] },
 ];
 const parkingLot = new ParkingLot(params);
 
@@ -23,7 +20,7 @@ console.log(parkingLot.park(car2));
 
 console.log(parkingLot.getAvailableSlots(VehicleType.CAR));
 
-parkingLot.unPark(6)
+parkingLot.unPark(10)
 
 console.log(parkingLot.getAvailableSlots(VehicleType.CAR));
 

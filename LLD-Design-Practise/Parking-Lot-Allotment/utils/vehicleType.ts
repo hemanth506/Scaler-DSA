@@ -5,3 +5,14 @@ export const VehicleType = {
 } as const;
 
 export type VehicleType = (typeof VehicleType)[keyof typeof VehicleType];
+
+
+type FloorAndCount = {
+    floor: number,
+    count: number
+}
+
+export type VehicleTypeFloorParams = {
+  vehicleType: VehicleType;
+  floorAndCount: FloorAndCount[];
+}
