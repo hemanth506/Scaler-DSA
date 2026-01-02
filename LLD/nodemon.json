@@ -1,0 +1,6 @@
+{
+  "watch": ["Design-Practise"],
+  "ext": "ts",
+  "ignore": ["dist"],
+  "exec": "ts-node ./Design-Practise/Rate-Limitter/Backend/index.ts"
+}

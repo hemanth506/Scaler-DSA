@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rate Limitter</title>
+  </head>
+  <body>
+    <button id="btn">Hit me!</button>
+    <select name="tier" id="tier">
+      <option value="FREE">Free</option>
+      <option value="PREMIUM">Premium</option>
+      <option value="ENTERPRISE">Enterprise</option>
+    </select>
+    <script>
+      const btn = document.getElementById("btn");
+      const tierDropDown = document.getElementById("tier");
+      let userId = window.crypto.randomUUID();
+      tierDropDown.addEventListener("change", (e) => {
+        userId = window.crypto.randomUUID();
+      });
+      btn.addEventListener("click", async () => {
+        const res = await fetch("http://localhost:3000/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId, tier: tierDropDown.value })
+        });
+        console.log(res.statusText, Date.now());
+      });
+    </script>
+  </body>
+</html>

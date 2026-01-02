@@ -1,0 +1,168 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
+  <diagram name="Parking-Lot-Allotment" id="_5Wvnk-nnnVB2HaMnDr7">
+    <mxGraphModel dx="991" dy="432" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Parking Lot" vertex="1">
+          <mxGeometry height="160" width="480" x="50" y="270" as="geometry">
+            <mxRectangle height="30" width="100" x="150" y="130" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-2" parent="FTDBFiaX2yIRDyoQwaz5-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;parkingSlotHeapPerVehicleType: Map&amp;lt;VehicleType, PriorityQueue&amp;lt;ParkingSlot&amp;gt;&amp;gt;&lt;br&gt;+&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;availableSlotsPerVehicleType: Map&amp;lt;VehicleType, Set&amp;lt;number&amp;gt;&amp;gt;&lt;br&gt;+&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;parkedVehicle: Map&amp;lt;number, ParkingTicket&amp;gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="54" width="480" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-3" parent="FTDBFiaX2yIRDyoQwaz5-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="480" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-4" parent="FTDBFiaX2yIRDyoQwaz5-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ park(vehicle: Vehicle): number | null&lt;div&gt;+ unPark(slotId): ParkingTicket | null&lt;/div&gt;&lt;div&gt;+ getAvailableSlots (type: VehicleType): number[]&lt;br&gt;+ getOccupiedSlots(): {slotId: number, vehicle: Vehicle} []&lt;/div&gt;" vertex="1">
+          <mxGeometry height="72" width="480" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-12" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;Parking Slot&lt;/span&gt;" vertex="1">
+          <mxGeometry height="104" width="140" x="670" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-13" parent="FTDBFiaX2yIRDyoQwaz5-12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id: number" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-14" parent="FTDBFiaX2yIRDyoQwaz5-12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ type: VehicleType" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-66" parent="FTDBFiaX2yIRDyoQwaz5-12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ floor: number" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-16" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;Vehicle&lt;/span&gt;" vertex="1">
+          <mxGeometry height="78" width="180" x="344" y="542" as="geometry">
+            <mxRectangle height="30" width="80" x="600" y="118" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-17" parent="FTDBFiaX2yIRDyoQwaz5-16" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ type: VehicleType&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="26" width="180" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-18" parent="FTDBFiaX2yIRDyoQwaz5-16" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ vehicleNumber: string" vertex="1">
+          <mxGeometry height="26" width="180" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-21" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ENUM: VehicleType&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;CAR&lt;br&gt;BIKE&lt;br&gt;TRUCK&lt;/p&gt;" vertex="1">
+          <mxGeometry height="78" width="140" x="600" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-22" edge="1" parent="1" source="FTDBFiaX2yIRDyoQwaz5-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="FTDBFiaX2yIRDyoQwaz5-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-30" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;Parking Ticket&lt;/span&gt;" vertex="1">
+          <mxGeometry height="182" width="180" x="60" y="480" as="geometry">
+            <mxRectangle height="30" width="80" x="600" y="118" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-31" parent="FTDBFiaX2yIRDyoQwaz5-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ ticketId: string&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="26" width="180" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-32" parent="FTDBFiaX2yIRDyoQwaz5-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ parkingSlot: ParkingSlot" vertex="1">
+          <mxGeometry height="26" width="180" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-33" parent="FTDBFiaX2yIRDyoQwaz5-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ entryTime: Date" vertex="1">
+          <mxGeometry height="26" width="180" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-34" parent="FTDBFiaX2yIRDyoQwaz5-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ exitTime?: Date" vertex="1">
+          <mxGeometry height="26" width="180" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-35" parent="FTDBFiaX2yIRDyoQwaz5-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ price?: number" vertex="1">
+          <mxGeometry height="26" width="180" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-67" parent="FTDBFiaX2yIRDyoQwaz5-30" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ vehicle: Vehicle" vertex="1">
+          <mxGeometry height="26" width="180" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-37" edge="1" parent="1" source="FTDBFiaX2yIRDyoQwaz5-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="FTDBFiaX2yIRDyoQwaz5-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-41" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&amp;lt;&amp;lt;PricingStrategy&amp;gt;&amp;gt;" vertex="1">
+          <mxGeometry height="104" width="280" x="263" y="660" as="geometry">
+            <mxRectangle height="30" width="150" x="260" y="760" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-42" parent="FTDBFiaX2yIRDyoQwaz5-41" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ pricePerHour: number&lt;br&gt;+ pricePerMinute: number" vertex="1">
+          <mxGeometry height="44" width="280" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-43" parent="FTDBFiaX2yIRDyoQwaz5-41" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="280" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-44" parent="FTDBFiaX2yIRDyoQwaz5-41" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ calculatePrice(seconds: number): number" vertex="1">
+          <mxGeometry height="26" width="280" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-62" edge="1" parent="1" source="FTDBFiaX2yIRDyoQwaz5-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="FTDBFiaX2yIRDyoQwaz5-41">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="123" y="780" />
+              <mxPoint x="403" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-47" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="BikePricingStrategy" vertex="1">
+          <mxGeometry height="104" width="260" x="13" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-48" parent="FTDBFiaX2yIRDyoQwaz5-47" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ pricePerHour: number&lt;br&gt;+ pricePerMinute: number" vertex="1">
+          <mxGeometry height="44" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-49" parent="FTDBFiaX2yIRDyoQwaz5-47" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="260" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-50" parent="FTDBFiaX2yIRDyoQwaz5-47" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ calculatePrice(seconds: number): number" vertex="1">
+          <mxGeometry height="26" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-63" edge="1" parent="1" source="FTDBFiaX2yIRDyoQwaz5-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="FTDBFiaX2yIRDyoQwaz5-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-51" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="CarPricingStrategy" vertex="1">
+          <mxGeometry height="104" width="270" x="283" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-52" parent="FTDBFiaX2yIRDyoQwaz5-51" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ pricePerHour: number&lt;br&gt;+ pricePerMinute: number" vertex="1">
+          <mxGeometry height="44" width="270" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-53" parent="FTDBFiaX2yIRDyoQwaz5-51" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="270" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-54" parent="FTDBFiaX2yIRDyoQwaz5-51" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ calculatePrice(seconds: number): number" vertex="1">
+          <mxGeometry height="26" width="270" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-61" edge="1" parent="1" source="FTDBFiaX2yIRDyoQwaz5-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="FTDBFiaX2yIRDyoQwaz5-41">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="683" y="780" />
+              <mxPoint x="403" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-55" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="TruckPricingStrategy" vertex="1">
+          <mxGeometry height="104" width="250" x="563" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-56" parent="FTDBFiaX2yIRDyoQwaz5-55" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ pricePerHour: number&lt;br&gt;+ pricePerMinute: number" vertex="1">
+          <mxGeometry height="44" width="250" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-57" parent="FTDBFiaX2yIRDyoQwaz5-55" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="250" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-58" parent="FTDBFiaX2yIRDyoQwaz5-55" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ calculatePrice(seconds: number): number" vertex="1">
+          <mxGeometry height="26" width="250" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-65" edge="1" parent="1" source="FTDBFiaX2yIRDyoQwaz5-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.561;entryY=-0.031;entryDx=0;entryDy=0;entryPerimeter=0;" target="FTDBFiaX2yIRDyoQwaz5-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="545" />
+              <mxPoint x="300" y="440" />
+              <mxPoint x="620" y="440" />
+              <mxPoint x="620" y="340" />
+              <mxPoint x="749" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTDBFiaX2yIRDyoQwaz5-68" edge="1" parent="1" source="FTDBFiaX2yIRDyoQwaz5-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="FTDBFiaX2yIRDyoQwaz5-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="649" />
+              <mxPoint x="320" y="522" />
+              <mxPoint x="434" y="522" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
