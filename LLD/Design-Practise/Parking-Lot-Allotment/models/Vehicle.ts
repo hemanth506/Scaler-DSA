@@ -1,4 +1,4 @@
-import { VehicleType } from "../utils/vehicleType.ts";
+import { VehicleType } from "../utils/vehicleType.js";
 
 export class Vehicle {
     private type: VehicleType

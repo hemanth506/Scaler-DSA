@@ -1,6 +1,6 @@
-import { ParkingLot } from "./models/ParkingLot.ts";
-import { Vehicle } from "./models/Vehicle.ts";
-import { VehicleType, type VehicleTypeFloorParams } from "./utils/vehicleType.ts";
+import { ParkingLot } from "./models/ParkingLot.js";
+import { Vehicle } from "./models/Vehicle.js";
+import { VehicleType, type VehicleTypeFloorParams } from "./utils/vehicleType.js";
 
 const params: VehicleTypeFloorParams[] = [
   { vehicleType: VehicleType.BIKE, floorAndCount: [{floor: 1, count: 3}, {floor: 2, count: 6}] },

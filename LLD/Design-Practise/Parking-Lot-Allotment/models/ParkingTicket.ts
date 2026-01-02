@@ -1,6 +1,6 @@
 import { randomUUID } from "crypto"
-import { ParkingSlot } from "./ParkingSlot.ts"
-import { Vehicle } from "./Vehicle.ts"
+import { ParkingSlot } from "./ParkingSlot.js"
+import { Vehicle } from "./Vehicle.js"
 
 export class ParkingTicket {
     private ticketId: string

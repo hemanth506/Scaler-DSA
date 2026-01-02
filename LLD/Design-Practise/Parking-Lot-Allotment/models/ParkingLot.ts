@@ -1,9 +1,9 @@
 import { PriorityQueue } from "datastructures-js";
-import { VehicleType, type VehicleTypeFloorParams } from "../utils/vehicleType.ts";
-import { ParkingSlot } from "./ParkingSlot.ts";
-import { Vehicle } from "./Vehicle.ts";
-import { ParkingTicket } from "./ParkingTicket.ts";
-import { PricingFactory } from "../strategy/PricingStrategy.ts";
+import { VehicleType, type VehicleTypeFloorParams } from "../utils/vehicleType.js";
+import { ParkingSlot } from "./ParkingSlot.js";
+import { Vehicle } from "./Vehicle.js";
+import { ParkingTicket } from "./ParkingTicket.js";
+import { PricingFactory } from "../strategy/PricingStrategy.js";
 
 type OccupiedSlotDTO = { slotId: number; vehicle: Vehicle };
 

@@ -1,5 +1,5 @@
-import { VehicleType } from "../utils/vehicleType.ts"
-import { Vehicle } from "./Vehicle.ts"
+import { VehicleType } from "../utils/vehicleType.js"
+import { Vehicle } from "./Vehicle.js"
 
 export class ParkingSlot {
     private id: number
