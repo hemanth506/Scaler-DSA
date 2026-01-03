@@ -14,6 +14,10 @@ export class TierResolver implements Resolver{
                 return UserTier.PREMIUM
             case 'enterprise':
                 return UserTier.ENTERPRISE
+            case 'premiumplus':
+                return UserTier.PREMIUMPLUS
+            case 'enterpriseplus':
+                return UserTier.ENTERPRISEPLUS
             default:
                 return undefined
         }

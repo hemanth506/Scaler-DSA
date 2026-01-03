@@ -1,12 +1,15 @@
-import { FixedWindow, SlidingWindowLog, TokenBucket } from "../strategy/RateLimitter.strategy";
+import { FixedWindow, LeakyBucket, SlidingWindowCounter, SlidingWindowLog, TokenBucket } from "../strategy/RateLimitter.strategy";
 import { RateLimitConfig, UserTier } from "../utils/RateLimitter.utils";
-import { Resolver, TierResolver } from "./TierResolver.service";
+import { Resolver } from "./TierResolver.service";
 
 export class RateLimitter {
     private strategyByTier = {
         [UserTier.FREE]: new FixedWindow(RateLimitConfig.FREE),
         [UserTier.PREMIUM]: new SlidingWindowLog(RateLimitConfig.PREMIUM),
+        [UserTier.PREMIUMPLUS]: new LeakyBucket(RateLimitConfig.PREMIUMPLUS),
         [UserTier.ENTERPRISE]: new TokenBucket(RateLimitConfig.ENTERPRISE),
+        [UserTier.ENTERPRISEPLUS]: new SlidingWindowCounter(RateLimitConfig.ENTERPRISEPLUS),
+
     }
     private tierResolver: Resolver;
     constructor(tierResolver: Resolver) {
