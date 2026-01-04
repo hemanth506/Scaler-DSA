@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
-import { rateLimitterMiddleware } from './middleware/RateLimitter.middleware';
+import { rateLimitterMiddleware } from './middleware/RateLimitter.middleware.ts';
 
 const app: Application = express();
 const port: number = 3000;

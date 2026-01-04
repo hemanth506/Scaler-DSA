@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express"
-import { RateLimitter } from "../service/RateLimitter.service"
-import { TierResolver } from "../service/TierResolver.service"
+import { RateLimitter } from "../service/RateLimitter.service.ts"
+import { TierResolver } from "../service/TierResolver.service.ts"
 
 const rateLimmitterService = new RateLimitter(new TierResolver())
 

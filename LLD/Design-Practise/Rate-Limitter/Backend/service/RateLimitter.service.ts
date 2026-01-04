@@ -1,6 +1,6 @@
-import { FixedWindow, LeakyBucket, SlidingWindowCounter, SlidingWindowLog, TokenBucket } from "../strategy/RateLimitter.strategy";
-import { RateLimitConfig, UserTier } from "../utils/RateLimitter.utils";
-import { Resolver } from "./TierResolver.service";
+import { FixedWindow, LeakyBucket, SlidingWindowCounter, SlidingWindowLog, TokenBucket } from "../strategy/RateLimitter.strategy.ts";
+import { RateLimitConfig, UserTier } from "../utils/RateLimitter.utils.ts";
+import { Resolver } from "./TierResolver.service.ts";
 
 export class RateLimitter {
     private strategyByTier = {

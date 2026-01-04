@@ -1,4 +1,4 @@
-import { UserTier } from "../utils/RateLimitter.utils";
+import { UserTier } from "../utils/RateLimitter.utils.ts";
 
 export interface Resolver {
     normalize(tier: string | UserTier): UserTier | undefined
