@@ -3,15 +3,15 @@ const parent = document.getElementById("parent");
 const child = document.getElementById("child");
 
 grandParent.addEventListener("click", () => {
-  console.log("grandparent clicked")
+  console.log("grandparent bubbling clicked")
 })
 
 parent.addEventListener("click", () => {
-  console.log("parent clicked")
+  console.log("parent bubbling clicked")
 })
 
 child.addEventListener("click", (event) => {
-  console.log("child clicked") 
+  console.log("child bubbling clicked") 
   // event.stopPropagation()
 })
 
