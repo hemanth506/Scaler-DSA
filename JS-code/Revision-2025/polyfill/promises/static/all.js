@@ -19,12 +19,13 @@ Promise.myAll = (prom = []) => {
 
 
 console.time("promise");
-Promise.myAll([resolveFn(5), resolveFn(3), resolveFn(1), resolveFn(7)]).then((data) => {
-    console.log('Promises resolved', data);
-    console.timeEnd('promise')
-}).catch(err => {
-    console.log('Promises rejected', err);
-    console.timeEnd('promise')
-}) 
+Promise.myAll([resolveFn(5), resolveFn(3), resolveFn(1), resolveFn(7)])
+    .then((data) => {
+        console.log('Promises resolved', data);
+        console.timeEnd('promise')
+    }).catch(err => {
+        console.log('Promises rejected', err);
+        console.timeEnd('promise')
+    }) 
 
 console.log(Promise);

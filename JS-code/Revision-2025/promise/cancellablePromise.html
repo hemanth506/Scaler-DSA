@@ -1,46 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8" />
+	<title>Cancellable Promise</title>
 </head>
 
 <body>
-    <button id="startBtn">Start Promise</button>
-    <button id="cancelBtn">Cancel Promise</button>
+	<button id="startBtn">Start Promise</button>
+	<button id="cancelBtn">Cancel Promise</button>
 
-    <script>
-        const startBtn = document.getElementById('startBtn')
-        const cancelBtn = document.getElementById('cancelBtn')
+	<script>
+		const startBtn = document.getElementById("startBtn");
+		const cancelBtn = document.getElementById("cancelBtn");
 
-        let isCancelled = false
+		let controller = null; // store current controller
 
-        function startFn() {
-            function cancellablePromise() {
-                return new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                        if (isCancelled) {
-                            reject('Event cancelled')
-                        } else {
-                            resolve('Event triggered')
-                        }
-                    }, 10 * 1000)
-                })
-            }
-            console.log('Function started');
-            cancellablePromise().then((res) => console.log(res)).catch((err) => console.log(err))
-        }
+		function startFn() {
+			// Create a new controller per start
+			controller = new AbortController();
+			const signal = controller.signal;
 
-        function cancelFn() {
-            isCancelled = true
-        }
+			function cancellablePromise(signal) {
+				return new Promise((resolve, reject) => {
+					const id = setTimeout(() => {
+						resolve("Event triggered");
+					}, 10_000);
 
-        startBtn.addEventListener('click', startFn)
-        cancelBtn.addEventListener('click', cancelFn)
+					signal.addEventListener("abort", () => {
+						clearTimeout(id);
+						reject("Event cancelled");
+					});
+				});
+			}
 
-    </script>
+			console.log("Function started");
+
+			cancellablePromise(signal).then(console.log).catch(console.log);
+		}
+
+		function cancelFn() {
+			if (controller) {
+				controller.abort();
+				controller = null;
+			}
+		}
+
+		startBtn.addEventListener("click", startFn);
+		cancelBtn.addEventListener("click", cancelFn);
+	</script>
 </body>
 
 </html>

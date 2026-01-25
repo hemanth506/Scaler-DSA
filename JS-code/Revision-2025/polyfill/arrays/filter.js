@@ -13,5 +13,5 @@ Array.prototype.myFilter = function(fn) {
 
 
 
-const res = [1,2,3,4,5, 6].myFilter((a) => (a % 3) === 0)
+const res = [1,2,3,4,5,6].myFilter((a) => (a % 3) === 0)
 console.log(res);
