@@ -36,3 +36,9 @@ Function.prototype.myBind = function(obj) {
 makeToSwim.myBind(lion)('Pacific ocean', 15000);
 
 
+Function.prototype.anotherMyBind = function(obj) {
+    obj.fn = this
+    return function( ...args) {
+        return obj.fn(...args)
+    }
+}

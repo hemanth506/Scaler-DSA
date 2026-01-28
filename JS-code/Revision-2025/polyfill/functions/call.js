@@ -32,3 +32,7 @@ console.log(Function.prototype);
 makeToSwim.myCall(elephant, 'Atlantic ocean', 11000);
 
 
+Function.prototype.anotherMyCall = function(obj, ...args) {
+    obj.fn = this
+    return obj.fn(...args)
+}
